@@ -1,11 +1,12 @@
 {
   "name": "a3-25-1-jobu",
   "version": "0.0.1",
+  "private": true,
   "description": "Um Aplicativo de Freelancers",
-  "productName": "Jobu Freela",
+  "license": "ISC",
   "author": "João Rosiak <contato.rosiak@gmail.com>",
   "type": "module",
-  "private": true,
+  "main": "eslint.config.js",
   "scripts": {
     "lint": "eslint -c ./eslint.config.js \"./src*/**/*.{js,cjs,mjs,vue}\"",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
@@ -38,5 +39,6 @@
     "node": "^28 || ^26 || ^24 || ^22 || ^20 || ^18",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
-  }
+  },
+  "productName": "Jobu Freela"
 }
