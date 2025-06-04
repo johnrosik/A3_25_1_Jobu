@@ -12,24 +12,23 @@ Um projeto de faculdade, que conecta freelancers com clientes em todo o Brasil.
 **Back-end:** Node, Javascript
 ## Documentação de cores
 ### Principal
-| Cor                                | Hexadecimal                                                      |
-|------------------------------------|------------------------------------------------------------------|
-| Fundo Principal                    | ![#121212](https://via.placeholder.com/10/121212?text=+) `#121212` |
-| Navbar e containers escuros       | ![#1E1E1E](https://via.placeholder.com/10/1E1E1E?text=+) `#1E1E1E` |
-| Texto principal                    | ![#ECEFF1](https://via.placeholder.com/10/ECEFF1?text=+) `#ECEFF1` |
-| Verde menta (destaque)            | ![#00B894](https://via.placeholder.com/10/00B894?text=+) `#00B894` |
-| Cinza médio (texto secundário)    | ![#B0BEC5](https://via.placeholder.com/10/B0BEC5?text=+) `#B0BEC5` |
-| Hover                              | ![#55EFC4](https://via.placeholder.com/10/55EFC4?text=+) `#55EFC4` |
-
+| Cor                                | Hexadecimal                                                          |
+|------------------------------------|----------------------------------------------------------------------|
+| Fundo Principal                    | ![#121212](https://placehold.co/10x10/121212/121212) `#121212`       |
+| Navbar e containers escuros       | ![#1E1E1E](https://placehold.co/10x10/1E1E1E/1E1E1E) `#1E1E1E`       |
+| Texto principal                    | ![#ECEFF1](https://placehold.co/10x10/ECEFF1/ECEFF1) `#ECEFF1`       |
+| Verde menta (destaque)            | ![#00B894](https://placehold.co/10x10/00B894/00B894) `#00B894`       |
+| Cinza médio (texto secundário)    | ![#B0BEC5](https://placehold.co/10x10/B0BEC5/B0BEC5) `#B0BEC5`       |
+| Hover                              | ![#55EFC4](https://placehold.co/10x10/55EFC4/55EFC4) `#55EFC4`       |
 
 ### Navbar
 
-| Cor                   | Hexadecimal                                                      |
-|------------------------|------------------------------------------------------------------|
-| Cor de fundo           | ![#1E1E1E](https://via.placeholder.com/10/1E1E1E?text=+) `#1E1E1E` |
-| Texto e ícones         | ![#ECEFF1](https://via.placeholder.com/10/ECEFF1?text=+) `#ECEFF1` |
-| Item ativo/destaque    | ![#00B894](https://via.placeholder.com/10/00B894?text=+) `#00B894` |
-| Hover                  | ![#55EFC4](https://via.placeholder.com/10/55EFC4?text=+) `#55EFC4` |
+| Cor                   | Hexadecimal                                                          |
+|------------------------|----------------------------------------------------------------------|
+| Cor de fundo           | ![#1E1E1E](https://placehold.co/10x10/1E1E1E/1E1E1E) `#1E1E1E`       |
+| Texto e ícones         | ![#ECEFF1](https://placehold.co/10x10/ECEFF1/ECEFF1) `#ECEFF1`       |
+| Item ativo/destaque    | ![#00B894](https://placehold.co/10x10/00B894/00B894) `#00B894`       |
+| Hover                  | ![#55EFC4](https://placehold.co/10x10/55EFC4/55EFC4) `#55EFC4`       |
 ## Autores
 
 - [@johnrosik](https://www.github.com/johnrosik)
