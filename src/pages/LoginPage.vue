@@ -1,10 +1,11 @@
 <template>
   <div class="flex flex-center q-pa-md" style="height: 100vh;">
     <div style="width: 100%; max-width: 400px;">
-      <q-card>
+      <q-card class="elevated-card q-pa-md">
         <q-card-section>
-          <div class="text-h6 text-center">
-            {{ isRegister ? 'Register' : 'Login' }}
+          <div class="text-h6 text-center"
+          color="primary">
+            {{ isRegister ? 'Registro' : 'Login' }}
           </div>
         </q-card-section>
 
@@ -71,14 +72,6 @@
             />
             <div v-if="isRegister" class="text-caption text-grey">
               Ao se registrar, você concorda com nossos termos e condições.
-            </div>
-            <q-toggle
-              v-if="!isRegister"
-              v-model="newsLetter"
-              label="Desejo receber novidades e promoções"
-            />
-            <div v-if="!isRegister" class="text-caption text-grey">
-              Você concorda em receber novidades e promoções.
             </div>
             <div class="row justify-center q-gutter-sm">
               <q-btn
