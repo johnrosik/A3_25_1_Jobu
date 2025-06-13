@@ -71,3 +71,5 @@ Um projeto de faculdade, que conecta freelancers com clientes em todo o Brasil.
 ## Futuramente
 
 🌍 Preparar para internacionalização (i18n) – Suporte a múltiplos idiomas e formas de pagamento estrangeiras.
+
+oi
