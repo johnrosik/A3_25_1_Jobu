@@ -13,11 +13,24 @@
         </q-toolbar-title>
       </q-toolbar>
 
-      <q-tabs align="left" class="bg-highlight text-white">
-        <q-route-tab to="/page1" label="Page One" />
-        <q-route-tab to="/page2" label="Page Two" />
-        <q-route-tab to="/page3" label="Page Three" />
-      </q-tabs>
+        <div class="row items-center no-wrap full-width">
+          <q-tabs
+            align="center"
+            class="bg-highlight text-white col"
+            style="font-size: 1.15rem;"
+          >
+            <q-route-tab to="/page1" label="Início" />
+            <q-route-tab to="/page2" label="Descubra" />
+            <q-route-tab to="/page3" label="Jobu" />
+          </q-tabs>
+          <q-tabs
+            align="right"
+            class="bg-highlight text-white"
+            style="font-size: 1.15rem; min-width: 120px;"
+          >
+            <q-route-tab to="/login" label="Login" />
+          </q-tabs>
+        </div>
         </q-header>
 
     <q-drawer v-model="leftDrawerOpen" side="left" overlay behavior="mobile" elevated>

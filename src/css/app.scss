@@ -160,3 +160,15 @@ body {
     box-shadow: 0px 0px 120px rgba(0, 255, 128, 0.12);
     overflow: hidden;
 }
+
+.toggle-button {
+    color: $textprimary;
+    border-radius: 999px;
+    transition: background 0.2s, padding 0.2s;
+    &:hover,
+    &.q-hovered {
+        background-color: rgba($textprimary, 0.1);
+        padding-right: 8px;
+        border-radius: 999px;
+    }
+}
