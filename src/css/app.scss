@@ -1,1 +1,14 @@
 // app global css in SCSS form
+.card {
+    width: 300px; /* ajuste conforme necessário */
+    margin: 40px auto; /* centraliza horizontalmente */
+    border: 1px solid #ccc; /* borda completa */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden; /* evita vazamento de conteúdo */
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centraliza conteúdo interno */
+    padding: 24px;
+}
