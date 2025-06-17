@@ -1,18 +1,16 @@
 <template>
   <div class="flex flex-center q-pa-md" style="height: 100vh">
     <div style="width: 100%; max-width: 400px">
-      <q-card>
-        <q-card class="bg-white text-black" style="width: 80vh">
-          <q-card-section class="q-pa-md" padding-bottom="100vh">
-            <div class="text-h6">Interesses</div>
-          </q-card-section>
-          <q-card-section class="q-pa-md" padding-bottom="100vh">
-            <div class="text-subtitle1">Revise os perfis antes de contratar</div>
-          </q-card-section>
-          <q-card-section class="q-pa-md" padding-bottom="100vh">
-            <div class="text-subtitle1, text-bold">Perfis Selecionados</div>
-          </q-card-section>
-        </q-card>
+      <q-card class="bg-white text-black" style="width: 80vh">
+        <q-card-section class="q-pa-md" padding-bottom="100vh">
+          <div class="text-h6">Interesses</div>
+        </q-card-section>
+        <q-card-section class="q-pa-md" padding-bottom="100vh">
+          <div class="text-subtitle1">Revise os perfis antes de contratar</div>
+        </q-card-section>
+        <q-card-section class="q-pa-md" padding-bottom="100vh">
+          <div class="text-subtitle1, text-bold">Perfis Selecionados</div>
+        </q-card-section>
 
         <q-item clickable v-ripple>
           <q-item-section avatar>

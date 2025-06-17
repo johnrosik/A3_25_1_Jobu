@@ -12,6 +12,10 @@ const routes = [
     path: '/intro',
     component: () => import('pages/IntroductionPage.vue'),
   },
+  {
+    path: '/interesses',
+    component: () => import('pages/InterestPage.vue'),
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

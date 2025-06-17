@@ -1,16 +1,14 @@
 <template>
   <div class="flex flex-center q-pa-md" style="height: 100vh">
-    <div style="width: 100%; max-width: 80vh">
-      <q-card class="bg-white text-black" style="width: 50vh; height: 70vh;">
+    <div style="width: 100%; max-width: 400px">
+      <q-card class="bg-white text-black" style="width: 80vh">
         <q-card-section class="q-pa-md">
           <!-- Etapa 1: Escolher perfil -->
           <div v-if="step === 1">
             <div class="text-h6 text-center">Quem é você?</div>
 
             <div class="flex flex-center q-mt-md">
-              <q-avatar size="140px" font-size="52px" color="teal" text-color="white">
-                U
-              </q-avatar>
+              <q-avatar size="140px" font-size="52px" color="teal" text-color="white"> U </q-avatar>
             </div>
 
             <div class="q-mt-xl text-subtitle1 text-center">
@@ -18,21 +16,11 @@
             </div>
 
             <div class="q-mt-md">
-              <q-option-group
-                v-model="group"
-                :options="options"
-                color="primary"
-              />
+              <q-option-group v-model="group" :options="options" color="primary" />
             </div>
 
             <div class="flex justify-end q-mt-xl">
-              <q-btn
-                unelevated
-                rounded
-                color="teal"
-                label="Próximo"
-                @click="goToIntro"
-              />
+              <q-btn unelevated rounded color="teal" label="Próximo" @click="goToIntro" />
             </div>
           </div>
 
@@ -86,12 +74,7 @@
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Pronto para começar?</div>
                   <div class="flex flex-center q-mt-xl">
-                    <q-btn
-                      unelevated
-                      rounded
-                      color="teal"
-                      label="Criar meu perfil"
-                    />
+                    <q-btn unelevated rounded color="teal" label="Criar meu perfil" />
                   </div>
                 </div>
               </q-carousel-slide>
@@ -118,7 +101,8 @@
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Encontre o profissional ideal</div>
                   <div class="text-subtitle2">
-                    Precisa de ajuda com um projeto? Aqui você encontra pessoas capacitadas para transformar sua ideia em realidade.
+                    Precisa de ajuda com um projeto? Aqui você encontra pessoas capacitadas para
+                    transformar sua ideia em realidade.
                   </div>
                 </div>
               </q-carousel-slide>
@@ -128,7 +112,8 @@
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Publique sua demanda</div>
                   <div class="text-subtitle2">
-                    Conte o que você precisa em poucos passos e receba propostas de quem realmente entende do assunto.
+                    Conte o que você precisa em poucos passos e receba propostas de quem realmente
+                    entende do assunto.
                   </div>
                 </div>
               </q-carousel-slide>
@@ -138,7 +123,8 @@
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Contrate com facilidade</div>
                   <div class="text-subtitle2">
-                    Converse com profissionais, avalie perfis e feche negócio com praticidade e confiança.
+                    Converse com profissionais, avalie perfis e feche negócio com praticidade e
+                    confiança.
                   </div>
                 </div>
               </q-carousel-slide>
@@ -148,12 +134,7 @@
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Pronto para começar?</div>
                   <div class="flex flex-center q-mt-xl">
-                    <q-btn
-                      unelevated
-                      rounded
-                      color="teal"
-                      label="Criar meu perfil"
-                    />
+                    <q-btn unelevated rounded color="teal" label="Criar meu perfil" />
                   </div>
                 </div>
               </q-carousel-slide>
