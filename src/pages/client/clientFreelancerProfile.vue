@@ -1,7 +1,6 @@
 <template>
-  <div v-scroll="onScroll" style="height: 100vh; overflow-y: auto;">
+  <div v-scroll="onScroll" style="height: 100vh; overflow-y: auto">
     <q-page class="bg-black text-white column items-center q-pa-md">
-
       <div class="full-width row items-center justify-between">
         <q-btn flat round icon="arrow_back" class="text-teal" />
         <q-btn flat round icon="menu" class="text-white" />
@@ -11,6 +10,7 @@
       <q-avatar size="100px" class="q-my-md">
         <q-icon name="person" size="100px" />
       </q-avatar>
+      <!-- fim icone de perfil  -->
 
       <div class="text-h6 text-bold text-center">Joana Rodrigues</div>
       <div class="text-subtitle2 text-center">Design Gráfico</div>
@@ -20,9 +20,11 @@
       </div>
 
       <div class="text-center q-mb-lg">
-        Trabalho com criação de logotipos, paleta de cores, tipografia e toda a identidade visual da sua empresa ou projeto.
+        Trabalho com criação de logotipos, paleta de cores, tipografia e toda a identidade visual da
+        sua empresa ou projeto.
       </div>
 
+      <!-- botões para selecionar  -->
       <div class="text-subtitle2 text-bold q-mb-sm">Selecionar Serviços</div>
       <q-option-group
         v-model="servicoSelecionado"
@@ -31,6 +33,7 @@
         color="teal"
         class="q-mb-md"
       />
+      <!-- botões para selecionar  -->
 
       <q-btn label="Finalizar Contratação" color="teal" class="full-width" rounded no-caps />
 
@@ -55,15 +58,14 @@ const servicoSelecionado = ref('logo2')
 const servicos = [
   {
     label: 'Criação de Logotipos',
-    value: 'logo1',
-    disable: true,
-    caption: 'R$ 75,00'
+    value: 'logo2',
+    caption: 'R$ 85,00',
   },
   {
     label: 'Criação de Logotipos',
     value: 'logo2',
-    caption: 'R$ 75,00'
-  }
+    caption: 'R$ 85,00',
+  },
 ]
 
 // Scroll com debounce
