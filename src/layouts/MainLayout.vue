@@ -6,12 +6,12 @@
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
+          <q-avatar color="transparent" style="max-width: 100px; max-height: 100px;">
+            <img src="../assets/jobu-logo.png">
           </q-avatar>
           Jobu
         </q-toolbar-title>
-      </q-toolbar>
+            </q-toolbar>
 
         <div class="row items-center no-wrap full-width">
           <q-tabs
@@ -19,7 +19,7 @@
             class="bg-highlight text-white col"
             style="font-size: 1.15rem;"
           >
-            <q-route-tab to="/page1" label="Início" />
+            <q-route-tab to="/index" label="Início" />
             <q-route-tab to="/page2" label="Descubra" />
             <q-route-tab to="/page3" label="Jobu" />
           </q-tabs>
