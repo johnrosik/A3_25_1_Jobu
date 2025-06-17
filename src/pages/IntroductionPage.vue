@@ -28,6 +28,7 @@
           <div v-else-if="step === 2 && group === 'op1'">
             <q-carousel
               v-model="slide"
+              @update:model-value="refresh"
               transition-prev="scale"
               transition-next="scale"
               swipeable
@@ -40,7 +41,7 @@
               class="bg-primary text-white shadow-1 rounded-borders"
             >
               <q-carousel-slide name="style" class="column no-wrap flex-center">
-                <q-icon name="style" size="56px" />
+                <img :src="url" style="width: 380px; height: 420px" />
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Liberdade para trabalhar</div>
                   <div class="text-subtitle2">
@@ -50,7 +51,7 @@
               </q-carousel-slide>
 
               <q-carousel-slide name="tv" class="column no-wrap flex-center">
-                <q-icon name="live_tv" size="56px" />
+                <img :src="url" style="width: 380px; height: 420px" />
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Mostre seu talento</div>
                   <div class="text-subtitle2">
@@ -60,7 +61,7 @@
               </q-carousel-slide>
 
               <q-carousel-slide name="layers" class="column no-wrap flex-center">
-                <q-icon name="layers" size="56px" />
+                <img :src="url" style="width: 380px; height: 420px" />
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Propostas rápidas e fáceis</div>
                   <div class="text-subtitle2">
@@ -70,7 +71,7 @@
               </q-carousel-slide>
 
               <q-carousel-slide name="map" class="column no-wrap flex-center">
-                <q-icon name="terrain" size="56px" />
+                <img :src="url" style="width: 380px; height: 420px" />
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Pronto para começar?</div>
                   <div class="flex flex-center q-mt-xl">
@@ -85,6 +86,7 @@
           <div v-else-if="step === 2 && group === 'op2'">
             <q-carousel
               v-model="slide"
+              @update:model-value="refresh"
               transition-prev="scale"
               transition-next="scale"
               swipeable
@@ -97,7 +99,7 @@
               class="bg-primary text-white shadow-1 rounded-borders"
             >
               <q-carousel-slide name="style" class="column no-wrap flex-center">
-                <q-icon name="style" size="56px" />
+                <img :src="url" style="width: 380px; height: 420px" />
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Encontre o profissional ideal</div>
                   <div class="text-subtitle2">
@@ -108,7 +110,7 @@
               </q-carousel-slide>
 
               <q-carousel-slide name="tv" class="column no-wrap flex-center">
-                <q-icon name="live_tv" size="56px" />
+                <img :src="url" style="width: 380px; height: 420px" />
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Publique sua demanda</div>
                   <div class="text-subtitle2">
@@ -119,7 +121,7 @@
               </q-carousel-slide>
 
               <q-carousel-slide name="layers" class="column no-wrap flex-center">
-                <q-icon name="layers" size="56px" />
+                <img :src="url" style="width: 380px; height: 420px" />
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Contrate com facilidade</div>
                   <div class="text-subtitle2">
@@ -130,7 +132,7 @@
               </q-carousel-slide>
 
               <q-carousel-slide name="map" class="column no-wrap flex-center">
-                <q-icon name="terrain" size="56px" />
+                <img :src="url" style="width: 380px; height: 420px" />
                 <div class="q-mt-md text-center">
                   <div class="text-h6">Pronto para começar?</div>
                   <div class="flex flex-center q-mt-xl">
@@ -157,6 +159,12 @@ const options = [
   { label: 'Sou Freelancer', value: 'op1' },
   { label: 'Sou Cliente', value: 'op2' },
 ]
+
+const url = ref('https://picsum.photos/500/300')
+
+function refresh() {
+  url.value = 'https://picsum.photos/500/300?t=' + Math.random()
+}
 
 function goToIntro() {
   step.value = 2
