@@ -14,7 +14,7 @@
         color="secondary"
         text-color="white"
         unelevated
-        to="/"
+        to="/index"
         label="Início"
         no-caps
       />

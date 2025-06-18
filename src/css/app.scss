@@ -5,170 +5,336 @@
 // Example: Use variables for component classes
 
 body {
-    background-color: $background;
-    color: $textprimary;
+  background-color: $background;
+  color: $textprimary;
 }
 
 // Buttons
 .q-btn,
 .button-primary {
-    background-color: $primary;
-    color: $textprimary;
-    &:hover,
-    &.q-hovered {
-        background-color: $hover;
-    }
+  background-color: $primary;
+  color: $textprimary;
+  &:hover,
+  &.q-hovered {
+    background-color: $hover;
+  }
 }
 .button-secondary,
 .q-btn--secondary {
-    background-color: $secondary;
-    color: $textprimary;
-    &:hover,
-    &.q-hovered {
-        background-color: $hover;
-    }
+  background-color: $secondary;
+  color: $textprimary;
+  &:hover,
+  &.q-hovered {
+    background-color: $hover;
+  }
 }
 
 // Navbar / Toolbar
 .navbar,
 .q-toolbar {
-    background-color: $navbarmain;
+  background-color: $navbarmain;
+  color: $navbartext;
+  .navbar-item,
+  .q-toolbar__title,
+  .q-btn {
     color: $navbartext;
-    .navbar-item,
-    .q-toolbar__title,
-    .q-btn {
-        color: $navbartext;
-        &.active,
-        &.q-btn--active {
-            color: $navbaractive;
-        }
-        &:hover,
-        &.q-hovered {
-            color: $navbarhover;
-        }
+    &.active,
+    &.q-btn--active {
+      color: $navbaractive;
     }
+    &:hover,
+    &.q-hovered {
+      color: $navbarhover;
+    }
+  }
+}
+
+// Custom Header with Hover Effects and Elevation
+.custom-header {
+  background-color: $navbarmain;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 20px rgba(0, 255, 128, 0.15);
+  border-bottom: 1px solid rgba(0, 255, 128, 0.1);
+
+  &:hover {
+    box-shadow: 0px 6px 30px rgba(0, 255, 128, 0.25);
+  }
+}
+
+.custom-toolbar {
+  background-color: $navbarmain;
+  transition: all 0.3s ease;
+}
+
+.custom-nav-area {
+  background-color: $navbarmain;
+  transition: all 0.3s ease;
 }
 
 // Cards
 .card,
 .q-card {
-    background-color: $primary;
-    color: $textprimary;
-    border: 1px solid $accent;
+  background-color: $primary;
+  color: $textprimary;
+  border: 1px solid $accent;
 }
 
 // Inputs
 .q-input,
 .q-field {
-    background-color: $background;
+  background-color: $background;
+  color: $textprimary;
+  .q-field__control {
+    border-color: $accent;
+  }
+  .q-field__native,
+  .q-field__input {
     color: $textprimary;
-    .q-field__control {
-        border-color: $accent;
-    }
-    .q-field__native,
-    .q-field__input {
-        color: $textprimary;
-    }
-    .q-field__label {
-        color: $textsecondary;
-    }
-    &.q-field--focused .q-field__control {
-        border-color: $highlight;
-    }
+  }
+  .q-field__label {
+    color: $textsecondary;
+  }
+  &.q-field--focused .q-field__control {
+    border-color: $highlight;
+  }
 }
 
 // Dialogs
 .q-dialog__inner,
 .q-dialog {
-    background-color: $primary;
-    color: $textprimary;
+  background-color: $primary;
+  color: $textprimary;
 }
 
 // Lists
 .q-list,
 .q-item {
-    background-color: $background;
-    color: $textprimary;
-    .q-item__section {
-        color: $textsecondary;
-    }
-    &.q-item--active,
-    &:hover {
-        background-color: $hover;
-        color: $highlight;
-    }
+  background-color: $background;
+  color: $textprimary;
+  .q-item__section {
+    color: $textsecondary;
+  }
+  &.q-item--active,
+  &:hover {
+    background-color: $hover;
+    color: $highlight;
+  }
 }
 
 // Tabs
 .q-tabs {
-    background-color: $navbarmain;
-    color: $navbartext;
-    .q-tab--active {
-        color: $navbaractive;
-        background-color: $background;
-    }
-    .q-tab:hover {
-        color: $navbarhover;
-    }
+  background-color: $navbarmain;
+  color: $navbartext;
+  .q-tab--active {
+    color: $navbaractive;
+    background-color: $background;
+  }
+  .q-tab:hover {
+    color: $navbarhover;
+  }
+}
+
+// Enhanced Tab Hover Effects
+.q-tabs .q-tab {
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $navbarhover;
+    color: $navbarmain;
+    transform: translateY(-2px);
+  }
 }
 
 // Drawer / Sidebar
 .q-drawer {
-    background-color: $navbarmain;
-    color: $navbartext;
+  background-color: $navbarmain;
+  color: $navbartext;
 }
 
 // Tooltip
 .q-tooltip {
-    background-color: $primary;
-    color: $textprimary;
+  background-color: $primary;
+  color: $textprimary;
 }
 
 // Chips
 .q-chip {
-    background-color: $secondary;
-    color: $textprimary;
+  background-color: $secondary;
+  color: $textprimary;
 }
 
 // Progress
 .q-linear-progress,
 .q-circular-progress {
-    color: $highlight;
-    background: $accent;
+  color: $highlight;
+  background: $accent;
 }
 
 // Avatars
 .q-avatar {
-    background-color: $accent;
-    color: $primary;
+  background-color: $accent;
+  color: $primary;
 }
 
 // Typography helpers
 .text-primary {
-    color: $textprimary !important;
+  color: $textprimary !important;
 }
 .text-secondary {
-    color: $textsecondary !important;
+  color: $textsecondary !important;
 }
 .highlight {
-    color: $highlight !important;
+  color: $highlight !important;
 }
 .elevated-card {
-    background-color: $primary;
-    border: 0px solid #444;
-    border-radius: 10px;
-    box-shadow: 0px 0px 120px rgba(0, 255, 128, 0.12);
-    overflow: hidden;
+  background-color: $primary;
+  border: 0px solid #444;
+  border-radius: 10px;
+  box-shadow: 0px 0px 120px rgba(0, 255, 128, 0.12);
+  overflow: hidden;
 }
 
 .toggle-button {
-    color: $textprimary;
+  color: $textprimary;
+  border-radius: 999px;
+  transition:
+    background 0.2s,
+    padding 0.2s;
+  &:hover,
+  &.q-hovered {
+    background-color: rgba($textprimary, 0.1);
+    padding-right: 8px;
     border-radius: 999px;
-    transition: background 0.2s, padding 0.2s;
-    &:hover,
-    &.q-hovered {
-        background-color: rgba($textprimary, 0.1);
-        padding-right: 8px;
-        border-radius: 999px;
-    }
+  }
+}
+
+// Ghost Button for Start Page
+.ghost-button-start {
+  background: transparent !important;
+  color: $textprimary !important;
+  border: none !important;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+
+  &:hover {
+    background: $secondary !important;
+    color: $navbarmain !important;
+    box-shadow: 0px 0px 25px rgba(0, 184, 148, 0.6);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0px);
+  }
+}
+
+// Page Transition - Expand Animation from Login Button
+.page-expand-enter-active,
+.page-expand-leave-active {
+  transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.page-expand-enter-from {
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: 85% 10%; /* Approximate position of login button */
+  border-radius: 50%;
+}
+
+.page-expand-leave-to {
+  opacity: 0;
+  transform: scale(1.1);
+  filter: blur(8px);
+}
+
+.page-expand-enter-to {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center;
+  border-radius: 0;
+}
+
+.page-expand-leave-from {
+  opacity: 1;
+  transform: scale(1);
+}
+
+// Default Page Slide Transition
+.page-slide-enter-active,
+.page-slide-leave-active {
+  transition: all 0.4s ease;
+}
+
+.page-slide-enter-from {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.page-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+// Enhanced Expand Animation with Circular Reveal Effect
+.page-expand-enter-active {
+  animation: expandFromLogin 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.page-expand-leave-active {
+  animation: shrinkToLogin 0.4s ease-in;
+}
+
+@keyframes expandFromLogin {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-5deg);
+    transform-origin: 85% 10%;
+    border-radius: 50%;
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.8) rotate(0deg);
+    border-radius: 20%;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    transform-origin: center;
+    border-radius: 0;
+    filter: blur(0px);
+  }
+}
+
+@keyframes shrinkToLogin {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(5px);
+  }
+}
+
+// Enhanced Login Tab Animation
+#login-tab {
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(0, 184, 148, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Special effect when navigating to login page
+.q-page {
+  overflow: hidden;
 }
