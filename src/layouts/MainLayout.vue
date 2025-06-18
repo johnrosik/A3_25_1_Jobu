@@ -36,9 +36,9 @@
             flat
             no-caps
             class="nav-link"
-            to="/page3"
+            to="/intro"
             label="Jobu"
-            :class="{ active: $route.path === '/page3' }"
+            :class="{ active: $route.path === '/intro' }"
           />
         </div>
 
@@ -93,11 +93,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use 'sass:color';
 @import '../css/quasar.variables.scss';
 
 // navbar bonita
 .modern-navbar {
-  background: linear-gradient(135deg, $navbarmain 0%, darken($navbarmain, 5%) 100%);
+  background: linear-gradient(
+    135deg,
+    $navbarmain 0%,
+    color.scale($navbarmain, $lightness: -5%) 100%
+  );
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 184, 148, 0.2);
   box-shadow:
@@ -228,7 +233,7 @@ export default {
 
     &:hover {
       color: $navbarmain;
-      background: lighten($secondary, 10%);
+      background: color.scale($secondary, $lightness: 10%);
     }
   }
 }

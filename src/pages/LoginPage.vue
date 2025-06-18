@@ -161,6 +161,58 @@
                 size="sm"
               />
             </div>
+
+            <!-- Botões de demonstração -->
+            <div class="demo-section q-mt-lg">
+              <div class="text-center q-mb-md">
+                <div class="text-subtitle2" style="color: #00b894">🎯 Demonstração do Projeto</div>
+                <div class="text-caption text-grey">
+                  Acesse diretamente os perfis para apresentação
+                </div>
+              </div>
+
+              <div class="row q-gutter-sm">
+                <q-btn
+                  class="col demo-btn"
+                  outline
+                  color="teal"
+                  label="👨‍💼 Perfil Cliente"
+                  icon="person"
+                  @click="goToClientProfile"
+                  size="sm"
+                />
+                <q-btn
+                  class="col demo-btn"
+                  outline
+                  color="teal"
+                  label="💼 Perfil Freelancer"
+                  icon="work"
+                  @click="goToFreelancerProfile"
+                  size="sm"
+                />
+              </div>
+
+              <div class="row q-gutter-sm q-mt-sm">
+                <q-btn
+                  class="col demo-btn"
+                  outline
+                  color="secondary"
+                  label="🔍 Descubra"
+                  icon="explore"
+                  @click="goToDiscover"
+                  size="sm"
+                />
+                <q-btn
+                  class="col demo-btn"
+                  outline
+                  color="secondary"
+                  label="💳 Pagamento"
+                  icon="payment"
+                  @click="goToPayment"
+                  size="sm"
+                />
+              </div>
+            </div>
           </q-card-section>
         </q-card>
       </div>
@@ -172,10 +224,12 @@
 // funcoes de login
 import { useQuasar } from 'quasar'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default {
   setup() {
     const $q = useQuasar()
+    const router = useRouter()
 
     const email = ref(null)
     const password = ref(null)
@@ -255,7 +309,29 @@ export default {
           message:
             currentMode.value === 'register' ? 'Registrado com sucesso!' : 'Login realizado!',
         })
+
+        // Redirecionar após login/registro bem-sucedido
+        setTimeout(() => {
+          router.push('/index')
+        }, 1000) // Aguarda 1 segundo para mostrar a notificação
       }
+    }
+
+    // Funções de navegação para demonstração
+    const goToClientProfile = () => {
+      router.push('/client-profile')
+    }
+
+    const goToFreelancerProfile = () => {
+      router.push('/freelancer-hub')
+    }
+
+    const goToDiscover = () => {
+      router.push('/descubra')
+    }
+
+    const goToPayment = () => {
+      router.push('/pagamento')
     }
 
     return {
@@ -272,6 +348,10 @@ export default {
       onSubmit,
       onReset,
       getParticleStyle,
+      goToClientProfile,
+      goToFreelancerProfile,
+      goToDiscover,
+      goToPayment,
     }
   },
 }
@@ -411,6 +491,24 @@ export default {
   50% {
     transform: translateY(-5px);
   }
+}
+
+// Seção de demonstração
+.demo-section {
+  background: rgba(0, 184, 148, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(0, 184, 148, 0.2);
+}
+
+.demo-btn {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.demo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
 }
 
 // responsivo mobile

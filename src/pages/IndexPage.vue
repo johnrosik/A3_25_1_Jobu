@@ -26,7 +26,7 @@
         <div class="button-glow-effect"></div>
         <q-btn
           class="ghost-button-start epic-start-btn"
-          to="/introductionPage"
+          to="/intro"
           label="Começar"
           flat
           @mouseover="onButtonHover"
@@ -85,17 +85,16 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@import '../css/quasar.variables.scss';
-
 // pagina principal
 .index-page {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  background: radial-gradient(ellipse at center, $background 0%, darken($background, 10%) 100%);
+  background: radial-gradient(ellipse at center, #121212 0%, #0a0a0a 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 
 // fundo com estrelas
@@ -119,11 +118,11 @@ onMounted(() => {
 
 .stars-small {
   background-image:
-    radial-gradient(1px 1px at 20px 30px, $secondary, transparent),
+    radial-gradient(1px 1px at 20px 30px, #00b894, transparent),
     radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
-    radial-gradient(1px 1px at 90px 40px, $secondary, transparent),
+    radial-gradient(1px 1px at 90px 40px, #00b894, transparent),
     radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
-    radial-gradient(1px 1px at 160px 30px, $secondary, transparent);
+    radial-gradient(1px 1px at 160px 30px, #00b894, transparent);
   background-repeat: repeat;
   background-size: 200px 100px;
   animation: moveStars 20s linear infinite;
@@ -131,9 +130,9 @@ onMounted(() => {
 
 .stars-medium {
   background-image:
-    radial-gradient(2px 2px at 30px 50px, $secondary, transparent),
+    radial-gradient(2px 2px at 30px 50px, #00b894, transparent),
     radial-gradient(2px 2px at 80px 90px, rgba(255, 255, 255, 0.7), transparent),
-    radial-gradient(1px 1px at 110px 20px, $secondary, transparent);
+    radial-gradient(1px 1px at 110px 20px, #00b894, transparent);
   background-repeat: repeat;
   background-size: 300px 150px;
   animation: moveStars 35s linear infinite;
@@ -141,7 +140,7 @@ onMounted(() => {
 
 .stars-large {
   background-image:
-    radial-gradient(3px 3px at 50px 60px, $secondary, transparent),
+    radial-gradient(3px 3px at 50px 60px, #00b894, transparent),
     radial-gradient(2px 2px at 120px 30px, rgba(255, 255, 255, 0.9), transparent);
   background-repeat: repeat;
   background-size: 400px 200px;
@@ -171,7 +170,7 @@ onMounted(() => {
   position: absolute;
   width: 4px;
   height: 4px;
-  background: $secondary;
+  background: #00b894;
   border-radius: 50%;
   opacity: 0.7;
   animation: floatParticle 15s linear infinite;
@@ -266,7 +265,7 @@ onMounted(() => {
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, $textprimary 0%, $secondary 50%, $textprimary 100%);
+  background: linear-gradient(135deg, #eceff1 0%, #00b894 50%, #eceff1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -289,7 +288,7 @@ onMounted(() => {
 
 .app-subtitle {
   font-size: 1.5rem;
-  color: $textsecondary;
+  color: #b0bec5;
   margin: 0;
   animation: subtitlePulse 2s ease-in-out infinite alternate;
 }

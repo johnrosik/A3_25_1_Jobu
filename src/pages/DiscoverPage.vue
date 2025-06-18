@@ -162,6 +162,88 @@
       </div>
     </section>
 
+    <!-- navegação rápida para demonstração -->
+    <section class="quick-nav-section">
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title">🚀 Explore o Projeto</h2>
+        <p class="section-subtitle">Navegue pelas principais funcionalidades desenvolvidas</p>
+      </div>
+
+      <div class="quick-nav-grid">
+        <div class="nav-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="nav-icon">
+            <q-icon name="person" size="2.5rem" color="secondary" />
+          </div>
+          <h3 class="nav-title">Perfil Cliente</h3>
+          <p class="nav-description">
+            Explore o dashboard completo do cliente com perfil unificado, pagamentos e serviços.
+          </p>
+          <q-btn
+            flat
+            color="secondary"
+            label="Acessar"
+            icon-right="arrow_forward"
+            @click="$router.push('/client-profile')"
+            class="nav-btn"
+          />
+        </div>
+
+        <div class="nav-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="nav-icon">
+            <q-icon name="work" size="2.5rem" color="secondary" />
+          </div>
+          <h3 class="nav-title">Hub Freelancer</h3>
+          <p class="nav-description">
+            Acesse o painel do freelancer com categorias, vagas, portfolio e configurações.
+          </p>
+          <q-btn
+            flat
+            color="secondary"
+            label="Acessar"
+            icon-right="arrow_forward"
+            @click="$router.push('/freelancer-hub')"
+            class="nav-btn"
+          />
+        </div>
+
+        <div class="nav-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="nav-icon">
+            <q-icon name="payment" size="2.5rem" color="secondary" />
+          </div>
+          <h3 class="nav-title">Sistema de Pagamento</h3>
+          <p class="nav-description">
+            Veja como funciona o sistema de pagamentos seguro e integrado da plataforma.
+          </p>
+          <q-btn
+            flat
+            color="secondary"
+            label="Acessar"
+            icon-right="arrow_forward"
+            @click="$router.push('/pagamento')"
+            class="nav-btn"
+          />
+        </div>
+
+        <div class="nav-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="nav-icon">
+            <q-icon name="settings" size="2.5rem" color="secondary" />
+          </div>
+          <h3 class="nav-title">Outras Funcionalidades</h3>
+          <p class="nav-description">
+            Explore filtros, interesses, serviços e outras funcionalidades da plataforma.
+          </p>
+          <q-btn
+            flat
+            color="secondary"
+            label="Ver Mais"
+            icon-right="arrow_forward"
+            @click="$router.push('/login')"
+            class="nav-btn"
+          />
+        </div>
+      </div>
+    </section>
+
     <!-- call to action -->
     <section class="cta-section">
       <div class="cta-content" data-aos="zoom-in">
@@ -170,8 +252,15 @@
           Junte-se a milhares de profissionais que já descobriram o futuro do trabalho freelancer
         </p>
         <div class="cta-buttons">
-          <q-btn class="cta-btn primary" to="/login" label="Começar Agora" size="lg" no-caps />
-          <q-btn class="cta-btn secondary" flat label="Saiba Mais" size="lg" no-caps />
+          <q-btn class="cta-btn primary" to="/intro" label="Começar Agora" size="lg" no-caps />
+          <q-btn
+            class="cta-btn secondary"
+            flat
+            to="/login"
+            label="Ver Demonstração"
+            size="lg"
+            no-caps
+          />
         </div>
       </div>
     </section>
@@ -495,6 +584,73 @@ onMounted(() => {
       color: white !important;
     }
   }
+}
+
+// Seção de navegação rápida
+.quick-nav-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, rgba(0, 184, 148, 0.05) 0%, rgba(0, 184, 148, 0.02) 100%);
+}
+
+.quick-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid rgba(0, 184, 148, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 184, 148, 0.15);
+  border-color: rgba(0, 184, 148, 0.3);
+}
+
+.nav-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: rgba(0, 184, 148, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.nav-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 12px 0;
+}
+
+.nav-description {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.nav-btn {
+  border-radius: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(0, 184, 148, 0.1);
 }
 
 // animacoes gerais
