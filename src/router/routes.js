@@ -8,66 +8,66 @@ const routes = [
   // ROTAS PAGES
   {
     path: '/sobre',
-    component: () => import('pages/clientFreelancerProfile.vue'),
+    component: () => import('pages/ClientFreelancerProfilePage.vue'),
   },
 
   {
     path: '/servicos',
-    component: () => import('pages/clientProfile.vue'),
+    component: () => import('pages/ClientProfilePage.vue'),
   },
 
   {
     path: '/editar',
-    component: () => import('pages/clientProfileEdit.vue'),
+    component: () => import('pages/ClientProfileEditPage.vue'),
   },
 
   {
     path: '/logout',
-    component: () => import('pages/clientProfileLogout.vue'),
+    component: () => import('pages/ClientProfileLogoutPage.vue'),
   },
 
   {
     path: '/servicos',
-    component: () => import('pages/clientServicoSelect.vue'),
+    component: () => import('pages/ClientServicoSelectPage.vue'),
   },
 
   {
     path: '/categorias',
-    component: () => import('pages/freelancerCategorias.vue'),
+    component: () => import('pages/FreelancerCategoriasPage.vue'),
   },
 
   {
     path: '/jobs',
-    component: () => import('pages/freelancerJobs.vue'),
+    component: () => import('pages/FreelancerJobsPage.vue'),
   },
   {
     path: '/detalhe',
-    component: () => import('pages/freelancerJobsDetails.vue'),
+    component: () => import('pages/FreelancerJobsDetailsPage.vue'),
   },
 
   {
     path: '/interesses',
-    component: () => import('pages/freelancerJobsInterest.vue'),
+    component: () => import('pages/FreelancerJobsInterestPage.vue'),
   },
 
   {
     path: '/freelancer',
-    component: () => import('pages/freelancerProfile.vue'),
+    component: () => import('pages/FreelancerProfilePage.vue'),
   },
 
   {
     path: '/editar',
-    component: () => import('pages/freelancerProfileEdit.vue'),
+    component: () => import('pages/FreelancerProfileEditPage.vue'),
   },
 
   {
     path: '/logout',
-    component: () => import('pages/freelancerProfileLogout.vue'),
+    component: () => import('pages/FreelancerProfileLogoutPage.vue'),
   },
 
   {
     path: '/share',
-    component: () => import('pages/freelancerProfileShare.vue'),
+    component: () => import('pages/FreelancerProfileSharePage.vue'),
   },
 
   // PAGES/FREELANCER
