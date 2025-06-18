@@ -47,8 +47,6 @@
           <q-btn outline no-caps class="login-btn" to="/login" label="Login" icon-right="login" />
         </div>
       </q-toolbar>
-    </q-header>
-
     <q-drawer v-model="leftDrawerOpen" side="left" overlay behavior="mobile" elevated>
       <!-- menu lateral -->
     </q-drawer>
@@ -62,6 +60,7 @@
 </template>
 
 <script>
+
 // funcoes do layout
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
@@ -69,6 +68,7 @@ import { useRoute } from 'vue-router'
 export default {
   setup() {
     const leftDrawerOpen = ref(false)
+
     const route = useRoute()
 
     const transitionName = computed(() => {
