@@ -1,6 +1,6 @@
 const routes = [
   {
-    path: '/',
+    path: '/index',
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
   },
@@ -37,43 +37,15 @@ const routes = [
   },
 
   {
-    path: '/jobs',
-    component: () => import('pages/FreelancerJobsPage.vue'),
+    path: '/login',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/LoginPage.vue') }],
   },
   {
-    path: '/detalhe',
-    component: () => import('pages/FreelancerJobsDetailsPage.vue'),
+    path: '/descubra',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/DiscoverPage.vue') }],
   },
-
-  {
-    path: '/interesses',
-    component: () => import('pages/FreelancerJobsInterestPage.vue'),
-  },
-
-  {
-    path: '/freelancer',
-    component: () => import('pages/FreelancerProfilePage.vue'),
-  },
-
-  {
-    path: '/editar',
-    component: () => import('pages/FreelancerProfileEditPage.vue'),
-  },
-
-  {
-    path: '/logout',
-    component: () => import('pages/FreelancerProfileLogoutPage.vue'),
-  },
-
-  {
-    path: '/share',
-    component: () => import('pages/FreelancerProfileSharePage.vue'),
-  },
-
-  // PAGES/FREELANCER
-
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
