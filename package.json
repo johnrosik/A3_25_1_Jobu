@@ -40,6 +40,13 @@
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
   },
-  "productName": "Jobu Freela"
+  "productName": "Jobu Freela",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnrosik/A3_25_1_Jobu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/johnrosik/A3_25_1_Jobu/issues"
+  },
+  "homepage": "https://github.com/johnrosik/A3_25_1_Jobu#readme"
 }
-
