@@ -393,6 +393,7 @@ onMounted(() => {
   width: 100%;
   height: 100px;
   pointer-events: none;
+  display: none; // Oculta as ondas verdes
 }
 
 .wave {
