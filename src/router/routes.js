@@ -5,36 +5,71 @@ const routes = [
     children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
   },
 
-  // PAGES/CLIENT
+  // ROTAS PAGES
   {
-    path: '/login',
-    component: () => import('pages/LoginPage.vue'),
+    path: '/sobre',
+    component: () => import('pages/clientFreelancerProfile.vue'),
   },
 
   {
-    path: '/cadastro',
-    component: () => import('pages/client/clientFreelancerProfile.vue'),
+    path: '/servicos',
+    component: () => import('pages/clientProfile.vue'),
   },
 
   {
-    path: '/cliente/servicos',
-    component: () => import('pages/client/clientProfile.vue'),
+    path: '/editar',
+    component: () => import('pages/clientProfileEdit.vue'),
   },
 
   {
-    path: '/cliente/editarperfil',
-    component: () => import('pages/client/clientProfileEdit.vue'),
+    path: '/logout',
+    component: () => import('pages/clientProfileLogout.vue'),
   },
 
   {
-    path: '/cliente/logout',
-    component: () => import('pages/client/clientProfileLogout.vue'),
+    path: '/servicos',
+    component: () => import('pages/clientServicoSelect.vue'),
   },
 
   {
-    path: '/cliente/editar',
-    component: () => import('pages/client/clientServicoSelect.vue'),
+    path: '/categorias',
+    component: () => import('pages/freelancerCategorias.vue'),
   },
+
+  {
+    path: '/jobs',
+    component: () => import('pages/freelancerJobs.vue'),
+  },
+  {
+    path: '/detalhe',
+    component: () => import('pages/freelancerJobsDetails.vue'),
+  },
+
+  {
+    path: '/interesses',
+    component: () => import('pages/freelancerJobsInterest.vue'),
+  },
+
+  {
+    path: '/freelancer',
+    component: () => import('pages/freelancerProfile.vue'),
+  },
+
+  {
+    path: '/editar',
+    component: () => import('pages/freelancerProfileEdit.vue'),
+  },
+
+  {
+    path: '/logout',
+    component: () => import('pages/freelancerProfileLogout.vue'),
+  },
+
+  {
+    path: '/share',
+    component: () => import('pages/freelancerProfileShare.vue'),
+  },
+
   // PAGES/FREELANCER
 
   // Always leave this as last one,
