@@ -118,6 +118,7 @@
                 filled
                 dense
                 class="filter-select"
+                @update:model-value="debouncedFilter"
               />
             </div>
           </div>
@@ -185,37 +186,54 @@
           </div>
 
           <!-- Lista de Vagas -->
-          <div v-else class="jobs-list">
-            <div
-              v-for="vaga in vagasFiltradas"
-              :key="vaga.id"
-              class="job-card"
-              @click="selectJob(vaga)"
-            >
-              <div class="job-card-header">
-                <q-avatar size="48px">
-                  <img :src="vaga.logo" alt="Company Logo" />
-                </q-avatar>
-                <div class="job-card-info">
-                  <h4 class="job-card-title">{{ vaga.titulo }}</h4>
-                  <div class="job-card-rating">
-                    <q-icon name="star" color="amber" size="16px" />
-                    <span>{{ vaga.avaliacao }}</span>
-                  </div>
-                </div>
-                <div class="job-card-price">{{ vaga.valor }}</div>
-              </div>
-              <p class="job-card-description">{{ vaga.descricao }}</p>
-              <div class="job-card-footer">
-                <span class="job-category">{{ vaga.categoria }}</span>
-                <span class="job-deadline">{{ vaga.prazo }}</span>
-              </div>
+          <div v-else>
+            <!-- Loading State -->
+            <div v-if="isLoading" class="loading-container">
+              <q-skeleton height="120px" class="q-mb-md" v-for="n in 3" :key="n" />
+              <div class="loading-text">Carregando vagas...</div>
             </div>
 
-            <div v-if="vagasFiltradas.length === 0" class="no-jobs">
-              <q-icon name="work_off" size="64px" />
-              <h4>Nenhuma vaga encontrada</h4>
-              <p>Tente ajustar os filtros ou explore outras categorias</p>
+            <!-- Error State -->
+            <div v-else-if="hasError" class="error-state">
+              <q-icon name="error" size="64px" color="red" />
+              <h4>Erro ao carregar vagas</h4>
+              <p>Ocorreu um problema ao buscar as vagas disponíveis.</p>
+              <q-btn color="teal" @click="retryLoadJobs" icon="refresh"> Tentar novamente </q-btn>
+            </div>
+
+            <!-- Lista Normal -->
+            <div v-else class="jobs-list">
+              <div
+                v-for="vaga in vagasFiltradas"
+                :key="vaga.id"
+                class="job-card"
+                @click="selectJob(vaga)"
+              >
+                <div class="job-card-header">
+                  <q-avatar size="48px">
+                    <img :src="vaga.logo" alt="Company Logo" />
+                  </q-avatar>
+                  <div class="job-card-info">
+                    <h4 class="job-card-title">{{ vaga.titulo }}</h4>
+                    <div class="job-card-rating">
+                      <q-icon name="star" color="amber" size="16px" />
+                      <span>{{ vaga.avaliacao }}</span>
+                    </div>
+                  </div>
+                  <div class="job-card-price">{{ vaga.valor }}</div>
+                </div>
+                <p class="job-card-description">{{ vaga.descricao }}</p>
+                <div class="job-card-footer">
+                  <span class="job-category">{{ vaga.categoria }}</span>
+                  <span class="job-deadline">{{ vaga.prazo }}</span>
+                </div>
+              </div>
+
+              <div v-if="vagasFiltradas.length === 0 && !isLoading" class="no-jobs">
+                <q-icon name="work_off" size="64px" />
+                <h4>Nenhuma vaga encontrada</h4>
+                <p>Tente ajustar os filtros ou explore outras categorias</p>
+              </div>
             </div>
           </div>
         </q-tab-panel>
@@ -408,6 +426,34 @@
                 <q-icon name="logout" />
               </div>
             </div>
+
+            <div class="settings-group">
+              <h5 class="group-title">Testes de Interface (Desenvolvimento)</h5>
+
+              <div class="setting-item clickable" @click="simulateLoading">
+                <div class="setting-info">
+                  <div class="setting-label">Testar Loading</div>
+                  <div class="setting-description">Simular carregamento de vagas</div>
+                </div>
+                <q-icon name="refresh" />
+              </div>
+
+              <div class="setting-item clickable" @click="simulateError">
+                <div class="setting-info">
+                  <div class="setting-label">Testar Error</div>
+                  <div class="setting-description">Simular erro no carregamento</div>
+                </div>
+                <q-icon name="error" />
+              </div>
+
+              <div class="setting-item clickable" @click="resetStates">
+                <div class="setting-info">
+                  <div class="setting-label">Reset Estados</div>
+                  <div class="setting-description">Voltar ao estado normal</div>
+                </div>
+                <q-icon name="restore" />
+              </div>
+            </div>
           </div>
         </q-tab-panel>
       </q-tab-panels>
@@ -451,6 +497,7 @@
 <script setup>
 import { ref, reactive, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useDebounceFn } from '@vueuse/core'
 
 const router = useRouter()
 
@@ -590,16 +637,46 @@ const categoriaOptions = computed(() =>
   categorias.value.map((cat) => ({ label: cat.nome, value: cat.nome })),
 )
 
+// Memoização para computed properties
 const vagasFiltradas = computed(() => {
   if (!filtroCategoria.value) return vagas.value
   return vagas.value.filter((vaga) => vaga.categoria === filtroCategoria.value)
 })
+
+// Debounce para filtros
+const debouncedFilter = useDebounceFn((value) => {
+  filtroCategoria.value = value
+}, 300)
+
+// Loading states
+const isLoading = ref(false)
+const hasError = ref(false)
 
 // Métodos
 const selectCategory = (categoria) => {
   filtroCategoria.value = categoria.nome
   activeTab.value = 'vagas'
 }
+
+const retryLoadJobs = () => {
+  hasError.value = false
+  isLoading.value = true
+  // Simular carregamento
+  setTimeout(() => {
+    isLoading.value = false
+  }, 1000)
+}
+
+// Função para infinite scroll (não implementada no template ainda)
+// const loadMoreJobs = (index, done) => {
+//   // Simular carregamento de mais vagas
+//   setTimeout(() => {
+//     if (vagas.value.length < 50) {
+//       // Adicionar mais vagas se necessário
+//     }
+//     done()
+//   }, 1000)
+// }
 
 const selectJob = (job) => {
   selectedJob.value = job
@@ -648,6 +725,29 @@ const showLogoutDialog = () => {
 const logout = () => {
   showLogout.value = false
   router.push('/login')
+}
+
+// Funções de teste para demonstrar loading e error states
+const simulateLoading = () => {
+  isLoading.value = true
+  hasError.value = false
+  activeTab.value = 'vagas' // Mudar para aba de vagas para ver o efeito
+
+  setTimeout(() => {
+    isLoading.value = false
+  }, 3000) // 3 segundos de loading
+}
+
+const simulateError = () => {
+  isLoading.value = false
+  hasError.value = true
+  activeTab.value = 'vagas' // Mudar para aba de vagas para ver o efeito
+}
+
+const resetStates = () => {
+  isLoading.value = false
+  hasError.value = false
+  activeTab.value = 'vagas' // Mudar para aba de vagas
 }
 </script>
 
@@ -1391,6 +1491,36 @@ const logout = () => {
 .nav-btn:hover {
   color: #00b894;
   transform: scale(1.1);
+}
+
+/* Loading e Error States - estilos atualizados */
+.loading-container {
+  margin: 20px 0;
+}
+
+.loading-text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 16px;
+  font-style: italic;
+}
+
+.error-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 59, 48, 0.05);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+  border-radius: 16px;
+}
+
+.error-state h4 {
+  color: #ff3b30;
+  margin: 16px 0 8px 0;
+}
+
+.error-state p {
+  margin: 0 0 20px 0;
 }
 
 /* Responsive */
