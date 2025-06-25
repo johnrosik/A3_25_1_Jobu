@@ -16,9 +16,7 @@
     <div class="error-content jobu-flex jobu-flex-center jobu-items-center jobu-text-center">
       <div class="error-container">
         <!-- 404 Number -->
-        <div class="error-number" data-aos="zoom-in">
-          404
-        </div>
+        <div class="error-number" data-aos="zoom-in">404</div>
 
         <!-- Error Message -->
         <div class="error-message" data-aos="fade-up" data-aos-delay="300">
@@ -31,7 +29,11 @@
         </div>
 
         <!-- Suggestions -->
-        <div class="error-suggestions jobu-card jobu-card--highlight jobu-mb-xl" data-aos="fade-up" data-aos-delay="600">
+        <div
+          class="error-suggestions jobu-card jobu-card--highlight jobu-mb-xl"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
           <div class="jobu-card-content">
             <h4 class="jobu-font-semibold jobu-mb-md">O que você pode fazer:</h4>
             <div class="suggestions-list jobu-text-left">
@@ -160,11 +162,11 @@ const showEasterEgg = () => {
           $q.notify({
             color: 'info',
             message: 'Código copiado!',
-            icon: 'content_copy'
+            icon: 'content_copy',
           })
-        }
-      }
-    ]
+        },
+      },
+    ],
   })
 }
 
@@ -173,11 +175,11 @@ onMounted(() => {
   // Simple AOS-like animation observer
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -50px 0px',
   }
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate-in')
       }
@@ -186,7 +188,7 @@ onMounted(() => {
 
   // Observe all elements with data-aos attribute
   const elements = document.querySelectorAll('[data-aos]')
-  elements.forEach(el => observer.observe(el))
+  elements.forEach((el) => observer.observe(el))
 })
 </script>
 
@@ -223,7 +225,8 @@ onMounted(() => {
 }
 
 @keyframes errorPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     text-shadow: 0 0 30px rgba(0, 184, 148, 0.3);
   }
@@ -239,7 +242,7 @@ onMounted(() => {
     transition: all 0.3s ease;
     padding: var(--jobu-space-xs);
     border-radius: 6px;
-    
+
     &:hover {
       background: rgba(0, 184, 148, 0.1);
       transform: translateX(4px);
@@ -262,20 +265,20 @@ onMounted(() => {
   position: absolute;
   opacity: 0.3;
   animation: floatAround 20s linear infinite;
-  
+
   &.floating-icon-1 {
     top: 20%;
     left: 10%;
     animation-delay: 0s;
   }
-  
+
   &.floating-icon-2 {
     top: 60%;
     right: 15%;
     animation-delay: 7s;
     animation-duration: 25s;
   }
-  
+
   &.floating-icon-3 {
     bottom: 30%;
     left: 20%;
@@ -327,17 +330,17 @@ onMounted(() => {
   .error-content {
     padding: var(--jobu-space-lg);
   }
-  
+
   .error-number {
     font-size: clamp(6rem, 20vw, 12rem);
   }
-  
+
   .error-actions {
     .jobu-flex {
       flex-direction: column;
     }
   }
-  
+
   .floating-elements {
     display: none; // Hide floating elements on mobile for performance
   }

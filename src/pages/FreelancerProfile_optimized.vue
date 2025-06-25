@@ -45,15 +45,21 @@
 
             <div class="profile-stats jobu-flex jobu-gap-lg">
               <div class="stat-item jobu-text-center">
-                <div class="jobu-text-xl jobu-font-bold jobu-text-accent">{{ freelancerProfile.projetos }}</div>
+                <div class="jobu-text-xl jobu-font-bold jobu-text-accent">
+                  {{ freelancerProfile.projetos }}
+                </div>
                 <div class="jobu-text-sm jobu-text-secondary">Projetos</div>
               </div>
               <div class="stat-item jobu-text-center">
-                <div class="jobu-text-xl jobu-font-bold jobu-text-accent">{{ freelancerProfile.clientes }}</div>
+                <div class="jobu-text-xl jobu-font-bold jobu-text-accent">
+                  {{ freelancerProfile.clientes }}
+                </div>
                 <div class="jobu-text-sm jobu-text-secondary">Clientes</div>
               </div>
               <div class="stat-item jobu-text-center">
-                <div class="jobu-text-xl jobu-font-bold jobu-text-accent">R$ {{ freelancerProfile.ganhos }}</div>
+                <div class="jobu-text-xl jobu-font-bold jobu-text-accent">
+                  R$ {{ freelancerProfile.ganhos }}
+                </div>
                 <div class="jobu-text-sm jobu-text-secondary">Ganhos</div>
               </div>
             </div>
@@ -126,8 +132,12 @@
                 class="vaga-card jobu-card jobu-card--interactive"
                 @click="selectVaga(vaga)"
               >
-                <div class="vaga-header jobu-flex jobu-items-center jobu-justify-between jobu-mb-md">
-                  <h5 class="jobu-text-lg jobu-font-semibold jobu-text-accent">{{ vaga.titulo }}</h5>
+                <div
+                  class="vaga-header jobu-flex jobu-items-center jobu-justify-between jobu-mb-md"
+                >
+                  <h5 class="jobu-text-lg jobu-font-semibold jobu-text-accent">
+                    {{ vaga.titulo }}
+                  </h5>
                   <div class="vaga-price jobu-text-xl jobu-font-bold jobu-text-success">
                     R$ {{ vaga.preco }}
                   </div>
@@ -198,16 +208,8 @@
                   @click="editMode = true"
                 />
                 <template v-else>
-                  <q-btn
-                    label="Cancelar"
-                    class="jobu-btn jobu-btn--ghost"
-                    @click="cancelEdit"
-                  />
-                  <q-btn
-                    label="Salvar"
-                    class="jobu-btn jobu-btn--primary"
-                    @click="saveProfile"
-                  />
+                  <q-btn label="Cancelar" class="jobu-btn jobu-btn--ghost" @click="cancelEdit" />
+                  <q-btn label="Salvar" class="jobu-btn jobu-btn--primary" @click="saveProfile" />
                 </template>
               </div>
             </div>
@@ -223,7 +225,9 @@
               <div class="config-item jobu-card jobu-flex jobu-items-center jobu-justify-between">
                 <div>
                   <div class="jobu-text-semibold">Notificações</div>
-                  <div class="jobu-text-sm jobu-text-secondary">Receber notificações de novas vagas</div>
+                  <div class="jobu-text-sm jobu-text-secondary">
+                    Receber notificações de novas vagas
+                  </div>
                 </div>
                 <q-toggle v-model="config.notifications" />
               </div>
@@ -231,7 +235,9 @@
               <div class="config-item jobu-card jobu-flex jobu-items-center jobu-justify-between">
                 <div>
                   <div class="jobu-text-semibold">Perfil Público</div>
-                  <div class="jobu-text-sm jobu-text-secondary">Permitir que clientes encontrem seu perfil</div>
+                  <div class="jobu-text-sm jobu-text-secondary">
+                    Permitir que clientes encontrem seu perfil
+                  </div>
                 </div>
                 <q-toggle v-model="config.publicProfile" />
               </div>
@@ -270,7 +276,8 @@ const freelancerProfile = ref({
   projetos: 28,
   clientes: 15,
   ganhos: '12.500',
-  descricao: 'Desenvolvedor experiente com foco em aplicações web modernas usando Vue.js, Node.js e PostgreSQL.'
+  descricao:
+    'Desenvolvedor experiente com foco em aplicações web modernas usando Vue.js, Node.js e PostgreSQL.',
 })
 
 const editableProfile = ref({ ...freelancerProfile.value })
@@ -282,7 +289,7 @@ const categorias = ref([
   { nome: 'Marketing Digital', icon: 'campaign', vagas: 15 },
   { nome: 'Redação', icon: 'edit', vagas: 6 },
   { nome: 'Tradução', icon: 'translate', vagas: 4 },
-  { nome: 'Consultoria', icon: 'business', vagas: 9 }
+  { nome: 'Consultoria', icon: 'business', vagas: 9 },
 ])
 
 // Jobs data
@@ -292,29 +299,29 @@ const vagas = ref([
     titulo: 'Desenvolvimento de E-commerce',
     descricao: 'Criação de loja virtual completa com integração de pagamento.',
     preco: '2.500',
-    prazo: '15 dias'
+    prazo: '15 dias',
   },
   {
     id: 2,
     titulo: 'App Mobile React Native',
     descricao: 'Desenvolvimento de aplicativo para iOS e Android.',
     preco: '3.800',
-    prazo: '30 dias'
+    prazo: '30 dias',
   },
   {
     id: 3,
     titulo: 'Website Institucional',
     descricao: 'Site responsivo para empresa de consultoria.',
     preco: '1.200',
-    prazo: '10 dias'
-  }
+    prazo: '10 dias',
+  },
 ])
 
 // Configuration
 const config = ref({
   notifications: true,
   publicProfile: true,
-  darkMode: false
+  darkMode: false,
 })
 
 // Options
@@ -326,7 +333,7 @@ const categoriaOptions = [
   'Designer Gráfico',
   'Copywriter',
   'Tradutor',
-  'Consultor'
+  'Consultor',
 ]
 
 // Methods

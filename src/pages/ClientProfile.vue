@@ -108,9 +108,7 @@
                     <q-icon name="notifications" size="24px" class="jobu-text-accent" />
                   </div>
                   <div class="menu-text jobu-flex-1">
-                    <div class="menu-title jobu-font-semibold jobu-text-primary">
-                      Notificações
-                    </div>
+                    <div class="menu-title jobu-font-semibold jobu-text-primary">Notificações</div>
                     <div class="menu-subtitle jobu-text-sm jobu-text-secondary">
                       2 novas notificações
                     </div>
@@ -128,9 +126,7 @@
                     <q-icon name="folder" size="24px" class="jobu-text-accent" />
                   </div>
                   <div class="menu-text jobu-flex-1">
-                    <div class="menu-title jobu-font-semibold jobu-text-primary">
-                      Meus Projetos
-                    </div>
+                    <div class="menu-title jobu-font-semibold jobu-text-primary">Meus Projetos</div>
                     <div class="menu-subtitle jobu-text-sm jobu-text-secondary">
                       {{ userProfile.projetos }} projetos ativos
                     </div>
@@ -145,9 +141,7 @@
                     <q-icon name="history" size="24px" class="jobu-text-accent" />
                   </div>
                   <div class="menu-text jobu-flex-1">
-                    <div class="menu-title jobu-font-semibold jobu-text-primary">
-                      Histórico
-                    </div>
+                    <div class="menu-title jobu-font-semibold jobu-text-primary">Histórico</div>
                     <div class="menu-subtitle jobu-text-sm jobu-text-secondary">
                       Transações e atividades
                     </div>
@@ -249,7 +243,11 @@
                 </div>
                 <div class="jobu-card-content">
                   <div v-if="services.length === 0" class="empty-state jobu-text-center">
-                    <q-icon name="work_outline" size="3rem" class="jobu-text-secondary jobu-mb-md" />
+                    <q-icon
+                      name="work_outline"
+                      size="3rem"
+                      class="jobu-text-secondary jobu-mb-md"
+                    />
                     <p class="jobu-text-secondary">Nenhum serviço contratado ainda</p>
                     <q-btn
                       label="Explorar Freelancers"
@@ -303,7 +301,9 @@
                 </div>
                 <div class="jobu-card-content">
                   <div class="settings-list">
-                    <div class="setting-item jobu-flex jobu-justify-between jobu-items-center jobu-mb-md">
+                    <div
+                      class="setting-item jobu-flex jobu-justify-between jobu-items-center jobu-mb-md"
+                    >
                       <div>
                         <div class="jobu-font-semibold">Notificações por E-mail</div>
                         <div class="jobu-text-sm jobu-text-secondary">
@@ -313,7 +313,9 @@
                       <q-toggle v-model="settings.emailNotifications" color="teal" />
                     </div>
 
-                    <div class="setting-item jobu-flex jobu-justify-between jobu-items-center jobu-mb-md">
+                    <div
+                      class="setting-item jobu-flex jobu-justify-between jobu-items-center jobu-mb-md"
+                    >
                       <div>
                         <div class="jobu-font-semibold">Notificações Push</div>
                         <div class="jobu-text-sm jobu-text-secondary">
@@ -323,7 +325,9 @@
                       <q-toggle v-model="settings.pushNotifications" color="teal" />
                     </div>
 
-                    <div class="setting-item jobu-flex jobu-justify-between jobu-items-center jobu-mb-md">
+                    <div
+                      class="setting-item jobu-flex jobu-justify-between jobu-items-center jobu-mb-md"
+                    >
                       <div>
                         <div class="jobu-font-semibold">Perfil Público</div>
                         <div class="jobu-text-sm jobu-text-secondary">
@@ -386,7 +390,7 @@ const userProfile = reactive({
   empresa: 'Tech Solutions Ltda.',
   avatar: 'https://cdn.quasar.dev/img/avatar1.jpg',
   projetos: 5,
-  descricao: 'Empresário focado em inovação tecnológica e soluções digitais.'
+  descricao: 'Empresário focado em inovação tecnológica e soluções digitais.',
 })
 
 // Edit profile data
@@ -395,14 +399,14 @@ const editProfile = reactive({
   email: userProfile.email,
   telefone: userProfile.telefone,
   empresa: userProfile.empresa,
-  descricao: userProfile.descricao
+  descricao: userProfile.descricao,
 })
 
 // Settings
 const settings = reactive({
   emailNotifications: true,
   pushNotifications: true,
-  publicProfile: false
+  publicProfile: false,
 })
 
 // Services data
@@ -413,7 +417,7 @@ const services = ref([
     freelancer: 'Ana Silva',
     description: 'Criação de website corporativo responsivo',
     price: '2.500,00',
-    status: 'Em Andamento'
+    status: 'Em Andamento',
   },
   {
     id: 2,
@@ -421,8 +425,8 @@ const services = ref([
     freelancer: 'Carlos Mendes',
     description: 'Criação de identidade visual completa',
     price: '800,00',
-    status: 'Concluído'
-  }
+    status: 'Concluído',
+  },
 ])
 
 // Methods
@@ -434,7 +438,7 @@ const showNotifications = () => {
   $q.notify({
     color: 'info',
     message: 'Abrindo notificações...',
-    icon: 'notifications'
+    icon: 'notifications',
   })
 }
 
@@ -442,7 +446,7 @@ const showProjects = () => {
   $q.notify({
     color: 'info',
     message: 'Carregando projetos...',
-    icon: 'folder'
+    icon: 'folder',
   })
 }
 
@@ -450,7 +454,7 @@ const showHistory = () => {
   $q.notify({
     color: 'info',
     message: 'Carregando histórico...',
-    icon: 'history'
+    icon: 'history',
   })
 }
 
@@ -458,7 +462,7 @@ const saveProfile = async () => {
   saving.value = true
   try {
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    await new Promise((resolve) => setTimeout(resolve, 1500))
 
     // Update profile
     Object.assign(userProfile, editProfile)
@@ -466,13 +470,13 @@ const saveProfile = async () => {
     $q.notify({
       color: 'positive',
       message: 'Perfil atualizado com sucesso!',
-      icon: 'check_circle'
+      icon: 'check_circle',
     })
   } catch {
     $q.notify({
       color: 'negative',
       message: 'Erro ao salvar perfil',
-      icon: 'error'
+      icon: 'error',
     })
   } finally {
     saving.value = false
@@ -486,7 +490,7 @@ const cancelEdit = () => {
     email: userProfile.email,
     telefone: userProfile.telefone,
     empresa: userProfile.empresa,
-    descricao: userProfile.descricao
+    descricao: userProfile.descricao,
   })
 
   activeTab.value = 'perfil'
@@ -500,16 +504,20 @@ const viewService = (service) => {
   $q.notify({
     color: 'info',
     message: `Visualizando serviço: ${service.title}`,
-    icon: 'visibility'
+    icon: 'visibility',
   })
 }
 
 const getServiceStatusColor = (status) => {
   switch (status) {
-    case 'Em Andamento': return 'orange'
-    case 'Concluído': return 'green'
-    case 'Cancelado': return 'red'
-    default: return 'grey'
+    case 'Em Andamento':
+      return 'orange'
+    case 'Concluído':
+      return 'green'
+    case 'Cancelado':
+      return 'red'
+    default:
+      return 'grey'
   }
 }
 
@@ -517,7 +525,7 @@ const shareProfile = () => {
   $q.notify({
     color: 'info',
     message: 'Link do perfil copiado!',
-    icon: 'share'
+    icon: 'share',
   })
 }
 
@@ -525,7 +533,7 @@ const exportData = () => {
   $q.notify({
     color: 'info',
     message: 'Exportando dados...',
-    icon: 'download'
+    icon: 'download',
   })
 }
 
@@ -535,12 +543,12 @@ const confirmDeleteAccount = () => {
     message: 'Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.',
     cancel: true,
     persistent: true,
-    color: 'negative'
+    color: 'negative',
   }).onOk(() => {
     $q.notify({
       color: 'negative',
       message: 'Conta excluída com sucesso',
-      icon: 'delete'
+      icon: 'delete',
     })
   })
 }

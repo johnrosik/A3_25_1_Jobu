@@ -66,9 +66,7 @@
                   class="jobu-input jobu-mb-md"
                   filled
                   lazy-rules
-                  :rules="[
-                    (val) => (val && val.includes('@')) || 'Por favor, digite um e-mail válido',
-                  ]"
+                  :rules="[(val) => (val && val.includes('@')) || 'Por favor, digite um e-mail válido']"
                 />
 
                 <div class="jobu-text-sm jobu-text-secondary jobu-mb-lg">
@@ -85,9 +83,7 @@
                   class="jobu-input jobu-mb-md"
                   filled
                   lazy-rules
-                  :rules="[
-                    (val) => (val && val.includes('@')) || 'Por favor, digite um e-mail válido',
-                  ]"
+                  :rules="[(val) => (val && val.includes('@')) || 'Por favor, digite um e-mail válido']"
                 />
 
                 <q-input
@@ -176,7 +172,7 @@
           <div class="jobu-card-header">
             <h4 class="card-title jobu-text-center">🚀 Demonstração Rápida</h4>
           </div>
-
+          
           <div class="jobu-card-content">
             <div class="demo-buttons">
               <q-btn
@@ -252,17 +248,16 @@ const toggleForgotMode = () => {
 
 // Labels
 const getToggleLabel = () => {
-  return currentMode.value === 'login' ? 'Não tem conta? Registre-se' : 'Já tem conta? Faça login'
+  return currentMode.value === 'login' 
+    ? 'Não tem conta? Registre-se' 
+    : 'Já tem conta? Faça login'
 }
 
 const getSubmitLabel = () => {
   switch (currentMode.value) {
-    case 'register':
-      return 'Confirmar'
-    case 'forgot':
-      return 'Enviar Nova Senha'
-    default:
-      return 'Login'
+    case 'register': return 'Confirmar'
+    case 'forgot': return 'Enviar Nova Senha'
+    default: return 'Login'
   }
 }
 
@@ -326,8 +321,7 @@ const goToPayment = () => router.push('/pagamento')
 }
 
 @keyframes cardFloat {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px);
   }
   50% {
@@ -346,10 +340,10 @@ const goToPayment = () => router.push('/pagamento')
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--jobu-space-md);
-
+    
     .demo-btn {
       transition: all 0.3s ease;
-
+      
       &:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
@@ -363,7 +357,7 @@ const goToPayment = () => router.push('/pagamento')
   .login-container {
     padding: var(--jobu-space-md);
   }
-
+  
   .demo-section .demo-buttons {
     grid-template-columns: 1fr;
   }

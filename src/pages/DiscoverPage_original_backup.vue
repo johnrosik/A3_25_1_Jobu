@@ -12,8 +12,8 @@
               A revolução digital que conecta talentos e oportunidades em todo o Brasil
             </p>
             <p class="hero-description jobu-text-lg jobu-text-secondary">
-              Descubra uma nova era de trabalho colaborativo, onde freelancers e clientes se
-              encontram em um ecossistema seguro, inovador e repleto de possibilidades.
+              Descubra uma nova era de trabalho colaborativo, onde freelancers e clientes se encontram
+              em um ecossistema seguro, inovador e repleto de possibilidades.
             </p>
           </div>
           <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
@@ -38,12 +38,10 @@
             <div class="feature-icon jobu-mb-lg">
               <q-icon name="security" size="3rem" class="jobu-text-accent" />
             </div>
-            <h3 class="feature-title jobu-text-xl jobu-font-semibold jobu-mb-md">
-              Pagamento Seguro
-            </h3>
+            <h3 class="feature-title jobu-text-xl jobu-font-semibold jobu-mb-md">Pagamento Seguro</h3>
             <p class="feature-description jobu-text-secondary">
-              Sistema de pagamento inteligente que protege tanto freelancers quanto clientes. O
-              valor só é liberado após a comprovação da entrega do serviço.
+              Sistema de pagamento inteligente que protege tanto freelancers quanto clientes. O valor
+              só é liberado após a comprovação da entrega do serviço.
             </p>
           </div>
 
@@ -62,9 +60,7 @@
             <div class="feature-icon jobu-mb-lg">
               <q-icon name="verified" size="3rem" class="jobu-text-accent" />
             </div>
-            <h3 class="feature-title jobu-text-xl jobu-font-semibold jobu-mb-md">
-              Perfis Verificados
-            </h3>
+            <h3 class="feature-title jobu-text-xl jobu-font-semibold jobu-mb-md">Perfis Verificados</h3>
             <p class="feature-description jobu-text-secondary">
               Todos os profissionais passam por verificação rigorosa de identidade e competências,
               garantindo qualidade e confiabilidade.
@@ -109,9 +105,7 @@
         <div class="steps-container">
           <div class="step-item" data-aos="fade-up" data-aos-delay="100">
             <div class="step-content jobu-flex jobu-items-center jobu-gap-xl">
-              <div
-                class="step-number jobu-text-6xl jobu-font-bold jobu-text-accent jobu-opacity-30"
-              >
+              <div class="step-number jobu-text-6xl jobu-font-bold jobu-text-accent jobu-opacity-30">
                 01
               </div>
               <div class="step-info">
@@ -119,8 +113,8 @@
                   Crie seu Perfil
                 </h3>
                 <p class="step-description jobu-text-lg jobu-text-secondary">
-                  Monte um perfil profissional completo com suas habilidades, experiências e
-                  portfólio. Destaque-se no mercado digital.
+                  Monte um perfil profissional completo com suas habilidades, experiências e portfólio.
+                  Destaque-se no mercado digital.
                 </p>
               </div>
             </div>
@@ -128,9 +122,7 @@
 
           <div class="step-item" data-aos="fade-up" data-aos-delay="200">
             <div class="step-content jobu-flex jobu-items-center jobu-gap-xl">
-              <div
-                class="step-number jobu-text-6xl jobu-font-bold jobu-text-accent jobu-opacity-30"
-              >
+              <div class="step-number jobu-text-6xl jobu-font-bold jobu-text-accent jobu-opacity-30">
                 02
               </div>
               <div class="step-info">
@@ -147,9 +139,7 @@
 
           <div class="step-item" data-aos="fade-up" data-aos-delay="300">
             <div class="step-content jobu-flex jobu-items-center jobu-gap-xl">
-              <div
-                class="step-number jobu-text-6xl jobu-font-bold jobu-text-accent jobu-opacity-30"
-              >
+              <div class="step-number jobu-text-6xl jobu-font-bold jobu-text-accent jobu-opacity-30">
                 03
               </div>
               <div class="step-info">
@@ -157,8 +147,8 @@
                   Trabalhe e Ganhe
                 </h3>
                 <p class="step-description jobu-text-lg jobu-text-secondary">
-                  Execute projetos com segurança total. Receba pagamentos garantidos através do
-                  nosso sistema de proteção.
+                  Execute projetos com segurança total. Receba pagamentos garantidos através do nosso
+                  sistema de proteção.
                 </p>
               </div>
             </div>
@@ -231,9 +221,7 @@
             <div class="nav-icon jobu-mb-lg">
               <q-icon name="payment" size="3rem" class="jobu-text-accent" />
             </div>
-            <h3 class="nav-title jobu-text-xl jobu-font-semibold jobu-mb-md">
-              Sistema de Pagamento
-            </h3>
+            <h3 class="nav-title jobu-text-xl jobu-font-semibold jobu-mb-md">Sistema de Pagamento</h3>
             <p class="nav-description jobu-text-secondary jobu-mb-lg">
               Demonstração da plataforma de pagamentos
             </p>
@@ -256,11 +244,11 @@ import { onMounted } from 'vue'
 onMounted(() => {
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px',
+    rootMargin: '0px 0px -50px 0px'
   }
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate-in')
       }
@@ -269,7 +257,7 @@ onMounted(() => {
 
   // Observe all elements with data-aos attribute
   const elements = document.querySelectorAll('[data-aos]')
-  elements.forEach((el) => observer.observe(el))
+  elements.forEach(el => observer.observe(el))
 })
 </script>
 
@@ -277,7 +265,7 @@ onMounted(() => {
 .discover-page {
   .hero-section {
     padding: var(--jobu-space-3xl) 0;
-
+    
     .floating-card {
       padding: var(--jobu-space-xl);
       animation: float 6s ease-in-out infinite;
@@ -286,11 +274,11 @@ onMounted(() => {
 
   .features-section {
     padding: var(--jobu-space-3xl) 0;
-
+    
     .feature-card {
       text-align: center;
       transition: transform 0.3s ease;
-
+      
       &:hover {
         transform: translateY(-8px);
       }
@@ -303,14 +291,14 @@ onMounted(() => {
 
   .steps-section {
     padding: var(--jobu-space-3xl) 0;
-
+    
     .steps-container {
       max-width: 800px;
       margin: 0 auto;
-
+      
       .step-item {
         margin-bottom: var(--jobu-space-xl);
-
+        
         &:last-child {
           margin-bottom: 0;
         }
@@ -320,7 +308,7 @@ onMounted(() => {
 
   .cta-section {
     padding: var(--jobu-space-3xl) 0;
-
+    
     .cta-content {
       max-width: 600px;
       margin: 0 auto;
@@ -334,8 +322,7 @@ onMounted(() => {
 
 // Animations
 @keyframes float {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px);
   }
   50% {
@@ -385,24 +372,24 @@ onMounted(() => {
     .hero-content {
       text-align: center;
     }
-
+    
     .features-grid {
       grid-template-columns: 1fr;
     }
-
+    
     .stats-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-
+    
     .nav-grid {
       grid-template-columns: 1fr;
     }
-
+    
     .step-content {
       text-align: center;
       flex-direction: column;
     }
-
+    
     .cta-buttons {
       flex-direction: column;
     }

@@ -142,8 +142,7 @@ onMounted(() => {
 }
 
 @keyframes logoGlow {
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.3;
     transform: scale(1);
   }
@@ -154,8 +153,7 @@ onMounted(() => {
 }
 
 @keyframes logoFloat {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   25% {
