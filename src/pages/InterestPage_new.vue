@@ -145,7 +145,10 @@
                 :color="getStatusColor(interest.status)"
                 size="16px"
               />
-              <span class="status-text jobu-text-sm" :class="`text-${getStatusColor(interest.status)}`">
+              <span
+                class="status-text jobu-text-sm"
+                :class="`text-${getStatusColor(interest.status)}`"
+              >
                 {{ getStatusLabel(interest.status) }}
               </span>
             </div>
@@ -258,55 +261,71 @@ const interests = ref([
 // Computed properties
 const filteredInterests = computed(() => {
   if (currentFilter.value === 'all') return interests.value
-  return interests.value.filter(interest => interest.status === currentFilter.value)
+  return interests.value.filter((interest) => interest.status === currentFilter.value)
 })
 
 const favoriteCount = computed(() => {
-  return interests.value.filter(interest => interest.favorito).length
+  return interests.value.filter((interest) => interest.favorito).length
 })
 
 const appliedCount = computed(() => {
-  return interests.value.filter(interest => interest.status === 'applied').length
+  return interests.value.filter((interest) => interest.status === 'applied').length
 })
 
 const watchingCount = computed(() => {
-  return interests.value.filter(interest => interest.status === 'saved').length
+  return interests.value.filter((interest) => interest.status === 'saved').length
 })
 
 // Status helpers
 const getStatusIcon = (status) => {
   switch (status) {
-    case 'saved': return 'bookmark'
-    case 'applied': return 'send'
-    case 'hired': return 'check_circle'
-    default: return 'help'
+    case 'saved':
+      return 'bookmark'
+    case 'applied':
+      return 'send'
+    case 'hired':
+      return 'check_circle'
+    default:
+      return 'help'
   }
 }
 
 const getStatusColor = (status) => {
   switch (status) {
-    case 'saved': return 'blue'
-    case 'applied': return 'orange'
-    case 'hired': return 'green'
-    default: return 'grey'
+    case 'saved':
+      return 'blue'
+    case 'applied':
+      return 'orange'
+    case 'hired':
+      return 'green'
+    default:
+      return 'grey'
   }
 }
 
 const getStatusLabel = (status) => {
   switch (status) {
-    case 'saved': return 'Salvo'
-    case 'applied': return 'Candidatura Enviada'
-    case 'hired': return 'Contratado'
-    default: return 'Desconhecido'
+    case 'saved':
+      return 'Salvo'
+    case 'applied':
+      return 'Candidatura Enviada'
+    case 'hired':
+      return 'Contratado'
+    default:
+      return 'Desconhecido'
   }
 }
 
 const getEmptyStateMessage = () => {
   switch (currentFilter.value) {
-    case 'saved': return 'Você ainda não salvou nenhum perfil de interesse.'
-    case 'applied': return 'Você ainda não se candidatou a nenhum projeto.'
-    case 'hired': return 'Você ainda não foi contratado para nenhum projeto.'
-    default: return 'Comece explorando perfis e salvando seus favoritos.'
+    case 'saved':
+      return 'Você ainda não salvou nenhum perfil de interesse.'
+    case 'applied':
+      return 'Você ainda não se candidatou a nenhum projeto.'
+    case 'hired':
+      return 'Você ainda não foi contratado para nenhum projeto.'
+    default:
+      return 'Comece explorando perfis e salvando seus favoritos.'
   }
 }
 
@@ -316,7 +335,7 @@ const toggleFavorite = (interest) => {
   $q.notify({
     color: interest.favorito ? 'positive' : 'info',
     message: interest.favorito ? 'Adicionado aos favoritos' : 'Removido dos favoritos',
-    icon: interest.favorito ? 'favorite' : 'favorite_border'
+    icon: interest.favorito ? 'favorite' : 'favorite_border',
   })
 }
 
@@ -328,7 +347,7 @@ const sendMessage = (interest) => {
   $q.notify({
     color: 'info',
     message: `Enviando mensagem para ${interest.nome}`,
-    icon: 'message'
+    icon: 'message',
   })
 }
 
@@ -337,15 +356,15 @@ const removeInterest = (interest) => {
     title: 'Confirmar',
     message: `Deseja remover ${interest.nome} dos seus interesses?`,
     cancel: true,
-    persistent: true
+    persistent: true,
   }).onOk(() => {
-    const index = interests.value.findIndex(i => i.id === interest.id)
+    const index = interests.value.findIndex((i) => i.id === interest.id)
     if (index > -1) {
       interests.value.splice(index, 1)
       $q.notify({
         color: 'positive',
         message: 'Interesse removido com sucesso',
-        icon: 'delete'
+        icon: 'delete',
       })
     }
   })
@@ -356,7 +375,7 @@ const applyToProject = (interest) => {
   $q.notify({
     color: 'positive',
     message: `Candidatura enviada para ${interest.nome}`,
-    icon: 'send'
+    icon: 'send',
   })
 }
 
@@ -364,7 +383,7 @@ const viewApplication = (interest) => {
   $q.notify({
     color: 'info',
     message: `Visualizando candidatura para ${interest.nome}`,
-    icon: 'visibility'
+    icon: 'visibility',
   })
 }
 </script>
@@ -372,11 +391,11 @@ const viewApplication = (interest) => {
 <style lang="scss" scoped>
 .stats-section {
   margin-bottom: var(--jobu-space-xl);
-  
+
   .stat-card {
     padding: var(--jobu-space-lg);
     transition: transform 0.3s ease;
-    
+
     &:hover {
       transform: translateY(-2px);
     }
@@ -386,7 +405,7 @@ const viewApplication = (interest) => {
 .filter-section {
   display: flex;
   justify-content: center;
-  
+
   .filter-toggle {
     border-radius: 12px;
     overflow: hidden;
@@ -396,7 +415,7 @@ const viewApplication = (interest) => {
 .interests-list {
   .interest-card {
     transition: all 0.3s ease;
-    
+
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 28px rgba(0, 184, 148, 0.15);
@@ -417,18 +436,18 @@ const viewApplication = (interest) => {
   .stats-section {
     grid-template-columns: 1fr;
   }
-  
+
   .interest-header {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .interest-actions,
   .action-buttons {
     flex-direction: column;
     width: 100%;
   }
-  
+
   .interest-status {
     flex-direction: column;
     gap: var(--jobu-space-md);

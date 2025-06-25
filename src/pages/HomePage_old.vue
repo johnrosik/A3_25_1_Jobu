@@ -71,7 +71,12 @@
                 </div>
               </div>
 
-              <q-btn flat label="Ver Perfil" class="jobu-btn--secondary" size="sm" />
+              <q-btn
+                flat
+                label="Ver Perfil"
+                class="jobu-btn--secondary"
+                size="sm"
+              />
             </div>
           </div>
         </div>
@@ -121,20 +126,6 @@ const featuredProfiles = ref([
     rating: 4.8,
     description: 'Criativa e inovadora',
   },
-  {
-    id: 3,
-    name: 'João Marcos Prates',
-    role: 'Desenvolvedor',
-    rating: 4.7,
-    description: 'Full-stack experiente',
-  },
-  {
-    id: 4,
-    name: 'Carlos Souza Gomes',
-    role: 'Engenheiro Civil',
-    rating: 4.6,
-    description: 'Projetos sustentáveis',
-  },
 ])
 
 const selectCategory = (categoryId) => {
@@ -171,5 +162,27 @@ const viewProfile = (profileId) => {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba(0, 184, 148, 0.2);
+}
+</style>
+  {
+    id: 3,
+    name: 'João Marcos Prates',
+    role: 'Desenvolvedor',
+    rating: 4.7,
+    description: 'palavras palavras palavras',
+  },
+  {
+    id: 4,
+    name: 'Carlos Souza Gomes',
+    role: 'Engenheiro Civil',
+    rating: 4.6,
+    description: 'palavras palavras palavras',
+  },
+])
+</script>
+
+<style scoped>
+.text-bold {
+  font-weight: 700;
 }
 </style>

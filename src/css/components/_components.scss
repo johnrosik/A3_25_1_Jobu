@@ -1,0 +1,370 @@
+// ==========================================================================
+// JOBU - COMPONENT STYLES
+// Reusable component classes
+// ==========================================================================
+
+// Page Layout Components
+.jobu-page {
+  @include jobu-dark-gradient;
+  min-height: 100vh;
+  color: var(--jobu-text-primary);
+}
+
+.jobu-header {
+  @include jobu-glass-header;
+
+  .header-content {
+    @include jobu-container;
+    @include jobu-flex-between;
+  }
+
+  .header-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--jobu-text-accent);
+  }
+}
+
+.jobu-content {
+  @include jobu-container;
+  padding-top: var(--jobu-space-xl);
+  padding-bottom: var(--jobu-space-xl);
+}
+
+// Card Components
+.jobu-card {
+  @include jobu-glass-card;
+  padding: var(--jobu-space-lg);
+  margin-bottom: var(--jobu-space-md);
+
+  &--large {
+    padding: var(--jobu-space-xl);
+  }
+
+  &--small {
+    padding: var(--jobu-space-md);
+  }
+
+  &--interactive {
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+}
+
+.jobu-card-header {
+  @include jobu-flex-between;
+  margin-bottom: var(--jobu-space-md);
+
+  .card-title {
+    margin: 0;
+    color: var(--jobu-text-accent);
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+}
+
+.jobu-card-content {
+  .card-description {
+    color: var(--jobu-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--jobu-space-md);
+  }
+}
+
+.jobu-card-footer {
+  @include jobu-flex-between;
+  margin-top: var(--jobu-space-md);
+  padding-top: var(--jobu-space-md);
+  border-top: 1px solid var(--jobu-border-divider);
+}
+
+// Button Components
+.jobu-btn {
+  @include jobu-button;
+  padding: var(--jobu-space-sm) var(--jobu-space-lg);
+  font-size: 0.95rem;
+
+  &--primary {
+    @include jobu-button(primary);
+  }
+
+  &--secondary {
+    @include jobu-button(secondary);
+  }
+
+  &--ghost {
+    @include jobu-button(ghost);
+  }
+
+  &--large {
+    padding: var(--jobu-space-md) var(--jobu-space-xl);
+    font-size: 1.1rem;
+  }
+
+  &--small {
+    padding: var(--jobu-space-xs) var(--jobu-space-md);
+    font-size: 0.85rem;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+// Form Components
+.jobu-input-group {
+  margin-bottom: var(--jobu-space-md);
+
+  .jobu-label {
+    display: block;
+    margin-bottom: var(--jobu-space-xs);
+    color: var(--jobu-text-secondary);
+    font-weight: 500;
+  }
+}
+
+.jobu-input {
+  width: 100%;
+  background: var(--jobu-bg-glass);
+  border: 1px solid var(--jobu-border-subtle);
+  border-radius: var(--jobu-radius-sm);
+  padding: var(--jobu-space-sm) var(--jobu-space-md);
+  color: var(--jobu-text-primary);
+  transition: all var(--jobu-transition-normal);
+
+  &:focus {
+    outline: none;
+    border-color: var(--jobu-secondary);
+    box-shadow: 0 0 0 2px rgba(0, 184, 148, 0.2);
+  }
+
+  &::placeholder {
+    color: var(--jobu-text-muted);
+  }
+}
+
+// Navigation Components
+.jobu-nav-item {
+  color: var(--jobu-text-secondary);
+  text-decoration: none;
+  padding: var(--jobu-space-sm) var(--jobu-space-md);
+  border-radius: var(--jobu-radius-md);
+  transition: all var(--jobu-transition-normal);
+
+  &:hover {
+    color: var(--jobu-text-accent);
+    background: var(--jobu-bg-glass-hover);
+  }
+
+  &--active {
+    color: var(--jobu-text-accent);
+    background: var(--jobu-bg-glass-active);
+  }
+}
+
+// List Components
+.jobu-list {
+  .list-item {
+    @include jobu-flex-between;
+    padding: var(--jobu-space-md);
+    border-bottom: 1px solid var(--jobu-border-divider);
+    transition: all var(--jobu-transition-normal);
+
+    &:hover {
+      background: var(--jobu-bg-glass-hover);
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .item-content {
+    flex: 1;
+
+    .item-title {
+      margin: 0 0 var(--jobu-space-xs) 0;
+      color: var(--jobu-text-primary);
+      font-weight: 500;
+    }
+
+    .item-subtitle {
+      margin: 0;
+      color: var(--jobu-text-secondary);
+      font-size: 0.9rem;
+    }
+  }
+
+  .item-action {
+    margin-left: var(--jobu-space-md);
+  }
+}
+
+// Loading States
+.jobu-loading {
+  @include jobu-flex-center;
+  padding: var(--jobu-space-2xl);
+  color: var(--jobu-text-secondary);
+
+  .loading-text {
+    margin-top: var(--jobu-space-md);
+    font-size: 0.9rem;
+  }
+}
+
+.jobu-skeleton {
+  @include jobu-skeleton;
+  border-radius: var(--jobu-radius-sm);
+
+  &--text {
+    height: 1.2em;
+    margin-bottom: var(--jobu-space-xs);
+
+    &:last-child {
+      width: 70%;
+    }
+  }
+
+  &--card {
+    height: 120px;
+    margin-bottom: var(--jobu-space-md);
+  }
+
+  &--avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+}
+
+// Error States
+.jobu-error {
+  @include jobu-flex-column;
+  @include jobu-flex-center;
+  padding: var(--jobu-space-2xl);
+  text-align: center;
+
+  .error-icon {
+    margin-bottom: var(--jobu-space-md);
+    opacity: 0.6;
+  }
+
+  .error-title {
+    margin: 0 0 var(--jobu-space-sm) 0;
+    color: var(--jobu-text-primary);
+    font-size: 1.2rem;
+  }
+
+  .error-message {
+    margin: 0 0 var(--jobu-space-lg) 0;
+    color: var(--jobu-text-secondary);
+  }
+}
+
+// Empty States
+.jobu-empty {
+  @include jobu-flex-column;
+  @include jobu-flex-center;
+  padding: var(--jobu-space-2xl);
+  text-align: center;
+
+  .empty-icon {
+    margin-bottom: var(--jobu-space-md);
+    opacity: 0.4;
+  }
+
+  .empty-title {
+    margin: 0 0 var(--jobu-space-sm) 0;
+    color: var(--jobu-text-primary);
+    font-size: 1.1rem;
+  }
+
+  .empty-message {
+    margin: 0;
+    color: var(--jobu-text-secondary);
+  }
+}
+
+// Grid System
+.jobu-grid {
+  display: grid;
+  gap: var(--jobu-space-md);
+
+  &--2-cols {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include jobu-responsive(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+
+    @include jobu-responsive(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--4-cols {
+    grid-template-columns: repeat(4, 1fr);
+
+    @include jobu-responsive(mobile) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// Typography Components
+.jobu-title {
+  margin: 0 0 var(--jobu-space-md) 0;
+
+  &--large {
+    font-size: 2.5rem;
+    font-weight: 700;
+    @include jobu-text-gradient;
+
+    @include jobu-responsive(mobile) {
+      font-size: 2rem;
+    }
+  }
+
+  &--medium {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--jobu-text-accent);
+  }
+
+  &--small {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--jobu-text-primary);
+  }
+}
+
+.jobu-subtitle {
+  margin: 0 0 var(--jobu-space-lg) 0;
+  color: var(--jobu-text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+// Divider
+.jobu-divider {
+  height: 1px;
+  background: var(--jobu-border-divider);
+  margin: var(--jobu-space-lg) 0;
+
+  &--thick {
+    height: 2px;
+    background: var(--jobu-border-subtle);
+  }
+
+  &--accent {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--jobu-secondary), transparent);
+  }
+}
