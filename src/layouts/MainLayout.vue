@@ -144,32 +144,17 @@
         <q-item
           clickable
           v-ripple
-          @click="navigateTo('/freelancer-hub')"
+          @click="navigateTo('/profile')"
           :class="{
-            active: $route.path === '/freelancer-hub' || $route.path === '/freelancer-profile',
+            active: $route.path.startsWith('/profile'),
           }"
         >
           <q-item-section avatar>
-            <q-icon name="work" />
+            <q-icon name="account_circle" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Freelancer Hub</q-item-label>
-            <q-item-label caption>Área do freelancer</q-item-label>
-          </q-item-section>
-        </q-item>
-
-        <q-item
-          clickable
-          v-ripple
-          @click="navigateTo('/client-profile')"
-          :class="{ active: $route.path === '/client-profile' || $route.path === '/client-basic' }"
-        >
-          <q-item-section avatar>
-            <q-icon name="business" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Perfil Cliente</q-item-label>
-            <q-item-label caption>Área do cliente</q-item-label>
+            <q-item-label>Meu Perfil</q-item-label>
+            <q-item-label caption>Acessar perfil unificado</q-item-label>
           </q-item-section>
         </q-item>
 

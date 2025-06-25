@@ -519,9 +519,10 @@ const applyFilters = () => {
 }
 
 .rating-display {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--jobu-bg-glass);
   padding: var(--jobu-space-sm);
-  border-radius: 8px;
+  border-radius: var(--jobu-radius-sm);
+  backdrop-filter: blur(5px);
 }
 
 .prazo-options {

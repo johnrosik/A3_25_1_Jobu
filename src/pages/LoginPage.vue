@@ -170,38 +170,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Demo section -->
-        <div class="jobu-card jobu-card--highlight jobu-mt-lg demo-section">
-          <div class="jobu-card-header">
-            <h4 class="card-title jobu-text-center">🚀 Demonstração Rápida</h4>
-          </div>
-
-          <div class="jobu-card-content">
-            <div class="demo-buttons">
-              <q-btn
-                label="🧑‍💼 Perfil Cliente"
-                class="jobu-btn jobu-btn--outline demo-btn"
-                @click="goToClientProfile"
-              />
-              <q-btn
-                label="👨‍💻 Perfil Freelancer"
-                class="jobu-btn jobu-btn--outline demo-btn"
-                @click="goToFreelancerProfile"
-              />
-              <q-btn
-                label="🔍 Descobrir"
-                class="jobu-btn jobu-btn--outline demo-btn"
-                @click="goToDiscover"
-              />
-              <q-btn
-                label="💳 Pagamento"
-                class="jobu-btn jobu-btn--outline demo-btn"
-                @click="goToPayment"
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </q-page>
@@ -301,12 +269,6 @@ const resetForm = () => {
   acceptTerms.value = false
   acceptNews.value = false
 }
-
-// Navigation functions
-const goToClientProfile = () => router.push('/client-profile')
-const goToFreelancerProfile = () => router.push('/freelancer-hub')
-const goToDiscover = () => router.push('/descubra')
-const goToPayment = () => router.push('/pagamento')
 </script>
 
 <style lang="scss" scoped>

@@ -215,7 +215,7 @@ onMounted(() => {
 .error-number {
   font-size: clamp(8rem, 25vw, 20rem);
   font-weight: 900;
-  background: linear-gradient(135deg, var(--jobu-accent) 0%, lighten(var(--jobu-accent), 20%) 100%);
+  background: linear-gradient(135deg, var(--jobu-accent) 0%, #d0d7dc 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -26,29 +26,16 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', component: () => import('pages/DiscoverPage.vue') }],
   },
-
-  // Perfis principais
+  // Perfil unificado
   {
-    path: '/freelancer-hub',
+    path: '/profile',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/FreelancerProfile.vue') }],
+    children: [{ path: '', component: () => import('pages/ProfileTypePage.vue') }],
   },
   {
-    path: '/client-profile',
+    path: '/profile/:type',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/ClientProfile.vue') }],
-  },
-
-  // Páginas individuais (para compatibilidade)
-  {
-    path: '/freelancer-profile',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/FreelancerProfile.vue') }],
-  },
-  {
-    path: '/client-basic',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/ClientProfile.vue') }],
+    children: [{ path: '', component: () => import('pages/UnifiedProfile.vue') }],
   },
 
   // Páginas de serviços e funcionalidades

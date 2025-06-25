@@ -168,8 +168,8 @@ const viewProfile = (profileId) => {
 }
 
 .jobu-footer {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--jobu-bg-glass);
   backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(0, 184, 148, 0.2);
+  border-top: 1px solid var(--jobu-border-glass);
 }
 </style>

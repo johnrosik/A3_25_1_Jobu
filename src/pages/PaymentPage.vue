@@ -308,7 +308,7 @@ const processPayment = () => {
     })
 
     setTimeout(() => {
-      router.push('/client-profile')
+      router.push('/profile/client')
     }, 2000)
   }, 2000)
 }

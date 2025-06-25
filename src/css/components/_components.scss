@@ -12,7 +12,6 @@
 
 .jobu-header {
   @include jobu-glass-header;
-
   .header-content {
     @include jobu-container;
     @include jobu-flex-between;
@@ -27,15 +26,20 @@
 
 .jobu-content {
   @include jobu-container;
-  padding-top: var(--jobu-space-xl);
-  padding-bottom: var(--jobu-space-xl);
+
+  & {
+    padding-top: var(--jobu-space-xl);
+    padding-bottom: var(--jobu-space-xl);
+  }
 }
 
-// Card Components
+// Card Components - Enhanced with stronger specificity
 .jobu-card {
   @include jobu-glass-card;
   padding: var(--jobu-space-lg);
   margin-bottom: var(--jobu-space-md);
+  background: var(--jobu-bg-glass) !important;
+  backdrop-filter: blur(20px) !important;
 
   &--large {
     padding: var(--jobu-space-xl);
@@ -50,7 +54,27 @@
 
     &:hover {
       transform: translateY(-4px);
+      background: var(--jobu-bg-glass-hover) !important;
     }
+  }
+
+  &--highlight {
+    border: 2px solid var(--jobu-border-glass);
+    background: var(--jobu-bg-glass-active) !important;
+  }
+}
+
+// Profile cards and option cards specific styling
+.profile-option,
+.action-item,
+.profile-card {
+  background: var(--jobu-bg-glass) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid var(--jobu-border-subtle) !important;
+
+  &:hover {
+    background: var(--jobu-bg-glass-hover) !important;
+    border-color: var(--jobu-border-glass) !important;
   }
 }
 

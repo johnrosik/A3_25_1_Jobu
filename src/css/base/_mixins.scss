@@ -3,6 +3,8 @@
 // Reusable mixins for common patterns
 // ==========================================================================
 
+@use 'sass:color';
+
 // Glass Card Effect
 @mixin jobu-glass-card($blur: 20px, $border-opacity: 0.2) {
   background: var(--jobu-bg-glass);
@@ -39,13 +41,12 @@
   transition: all var(--jobu-transition-normal);
   border: none;
   cursor: pointer;
-
   @if $variant == primary {
     background: var(--jobu-secondary);
     color: white;
 
     &:hover {
-      background: color.scale($secondary, $lightness: 10%);
+      background: color.scale(#00b894, $lightness: 10%);
       transform: translateY(-2px);
       box-shadow: var(--jobu-shadow-glow);
     }
@@ -82,9 +83,11 @@
 }
 
 @mixin jobu-flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  & {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 @mixin jobu-flex-column {
@@ -94,9 +97,11 @@
 
 // Container with max-width
 @mixin jobu-container($max-width: 1200px) {
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 0 var(--jobu-space-md);
+  & {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 var(--jobu-space-md);
+  }
 
   @media (max-width: 768px) {
     padding: 0 var(--jobu-space-sm);
@@ -185,13 +190,12 @@
     background: var(--jobu-bg-glass);
     border-radius: var(--jobu-radius-sm);
   }
-
   &::-webkit-scrollbar-thumb {
     background: var(--jobu-secondary);
     border-radius: var(--jobu-radius-sm);
 
     &:hover {
-      background: color.scale($secondary, $lightness: 10%);
+      background: color.scale(#00b894, $lightness: 10%);
     }
   }
 }

@@ -34,55 +34,57 @@ defineEmits(['select'])
 
 <style scoped>
 .job-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 16px;
-  border: 1px solid rgba(0, 184, 148, 0.1);
+  background: var(--jobu-bg-glass);
+  border-radius: var(--jobu-radius-lg);
+  padding: var(--jobu-space-lg);
+  margin-bottom: var(--jobu-space-md);
+  border: 1px solid var(--jobu-border-subtle);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--jobu-transition-normal);
+  backdrop-filter: blur(10px);
 }
 
 .job-card:hover {
-  background: rgba(0, 184, 148, 0.1);
-  border-color: rgba(0, 184, 148, 0.3);
+  background: var(--jobu-bg-glass-hover);
+  border-color: var(--jobu-border-glass);
   transform: translateY(-2px);
+  box-shadow: var(--jobu-shadow-glow);
 }
 
 .job-card-header {
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: var(--jobu-space-sm);
 }
 
 .job-card-info {
   flex: 1;
-  margin-left: 12px;
+  margin-left: var(--jobu-space-sm);
 }
 
 .job-card-title {
   font-size: 1.1rem;
   font-weight: 500;
   margin: 0 0 4px 0;
-  color: white;
+  color: var(--jobu-text-primary);
 }
 
 .job-card-rating {
   display: flex;
   align-items: center;
   gap: 4px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--jobu-text-secondary);
 }
 
 .job-card-price {
   font-weight: 600;
-  color: #00b894;
+  color: var(--jobu-secondary);
   font-size: 1.1rem;
 }
 
 .job-card-description {
-  margin: 0 0 12px 0;
-  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 var(--jobu-space-sm) 0;
+  color: var(--jobu-text-secondary);
   line-height: 1.4;
 }
 
@@ -91,13 +93,13 @@ defineEmits(['select'])
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--jobu-text-muted);
 }
 
 .job-category {
-  background: rgba(0, 184, 148, 0.2);
-  color: #00b894;
-  padding: 4px 8px;
-  border-radius: 8px;
+  background: var(--jobu-bg-glass-hover);
+  color: var(--jobu-secondary);
+  padding: var(--jobu-space-xs) var(--jobu-space-sm);
+  border-radius: var(--jobu-radius-sm);
 }
 </style>

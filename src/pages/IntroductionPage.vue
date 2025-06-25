@@ -36,13 +36,13 @@
           </h2>
 
           <div class="profile-options jobu-grid--2-cols jobu-gap-lg jobu-mb-xl">
-            <div 
+            <div
               class="profile-option jobu-card jobu-card--interactive jobu-text-center"
-              :class="{ 'option-active': group === 'freelancer' }" 
+              :class="{ 'option-active': group === 'freelancer' }"
               @click="group = 'freelancer'"
             >
               <div class="option-icon jobu-mb-lg">
-                <q-icon name="work" size="48px" class="jobu-text-accent" />
+                <q-icon name="work" size="48px" class="jobu-text-secondary" />
               </div>
               <h3 class="jobu-text-xl jobu-font-semibold jobu-mb-md">Sou Freelancer</h3>
               <p class="jobu-text-secondary jobu-mb-lg">
@@ -50,27 +50,27 @@
               </p>
               <div class="option-features">
                 <div class="feature jobu-flex jobu-items-center jobu-gap-xs jobu-mb-xs">
-                  <q-icon name="check" size="16px" class="jobu-text-success" />
+                  <q-icon name="check" size="16px" class="text-positive" />
                   <span class="jobu-text-sm">Crie seu portfólio</span>
                 </div>
                 <div class="feature jobu-flex jobu-items-center jobu-gap-xs jobu-mb-xs">
-                  <q-icon name="check" size="16px" class="jobu-text-success" />
+                  <q-icon name="check" size="16px" class="text-positive" />
                   <span class="jobu-text-sm">Receba propostas</span>
                 </div>
                 <div class="feature jobu-flex jobu-items-center jobu-gap-xs">
-                  <q-icon name="check" size="16px" class="jobu-text-success" />
+                  <q-icon name="check" size="16px" class="text-positive" />
                   <span class="jobu-text-sm">Trabalhe de qualquer lugar</span>
                 </div>
               </div>
             </div>
 
-            <div 
+            <div
               class="profile-option jobu-card jobu-card--interactive jobu-text-center"
-              :class="{ 'option-active': group === 'client' }" 
+              :class="{ 'option-active': group === 'client' }"
               @click="group = 'client'"
             >
               <div class="option-icon jobu-mb-lg">
-                <q-icon name="person" size="48px" class="jobu-text-accent" />
+                <q-icon name="person" size="48px" class="jobu-text-secondary" />
               </div>
               <h3 class="jobu-text-xl jobu-font-semibold jobu-mb-md">Sou Cliente</h3>
               <p class="jobu-text-secondary jobu-mb-lg">
@@ -78,15 +78,15 @@
               </p>
               <div class="option-features">
                 <div class="feature jobu-flex jobu-items-center jobu-gap-xs jobu-mb-xs">
-                  <q-icon name="check" size="16px" class="jobu-text-success" />
+                  <q-icon name="check" size="16px" class="text-positive" />
                   <span class="jobu-text-sm">Encontre especialistas</span>
                 </div>
                 <div class="feature jobu-flex jobu-items-center jobu-gap-xs jobu-mb-xs">
-                  <q-icon name="check" size="16px" class="jobu-text-success" />
+                  <q-icon name="check" size="16px" class="text-positive" />
                   <span class="jobu-text-sm">Compare propostas</span>
                 </div>
                 <div class="feature jobu-flex jobu-items-center jobu-gap-xs">
-                  <q-icon name="check" size="16px" class="jobu-text-success" />
+                  <q-icon name="check" size="16px" class="text-positive" />
                   <span class="jobu-text-sm">Pagamento seguro</span>
                 </div>
               </div>
@@ -98,8 +98,8 @@
               class="jobu-btn jobu-btn--primary jobu-btn--large"
               label="Continuar"
               icon-right="arrow_forward"
-              @click="goToIntro"
               :disable="!group"
+              @click="nextStep"
             />
           </div>
         </div>
@@ -109,13 +109,7 @@
       <div v-else-if="step === 2" class="onboarding-section">
         <!-- Header -->
         <div class="onboarding-header jobu-flex jobu-items-center jobu-justify-between jobu-mb-xl">
-          <q-btn 
-            flat 
-            round 
-            icon="arrow_back" 
-            class="jobu-btn--ghost" 
-            @click="step = 1" 
-          />
+          <q-btn flat round icon="arrow_back" class="jobu-btn--ghost" @click="step = 1" />
           <div class="progress-container jobu-flex-1 jobu-mx-lg">
             <div class="progress-bar">
               <div class="progress-fill" :style="{ width: progressWidth + '%' }"></div>
@@ -146,20 +140,20 @@
               <q-carousel-slide name="welcome" class="carousel-slide">
                 <div class="slide-content jobu-text-center">
                   <div class="slide-icon jobu-mb-lg">
-                    <q-icon name="rocket_launch" size="80px" class="jobu-text-accent" />
+                    <q-icon name="rocket_launch" size="80px" class="text-secondary" />
                   </div>
                   <h2 class="jobu-text-2xl jobu-font-bold jobu-mb-md">Liberdade para trabalhar</h2>
                   <p class="jobu-text-lg jobu-text-secondary jobu-mb-lg">
-                    No Jobu, você tem total flexibilidade para escolher seus projetos, 
-                    definir seus preços e trabalhar quando quiser.
+                    No Jobu, você tem total flexibilidade para escolher seus projetos, definir seus
+                    preços e trabalhar quando quiser.
                   </p>
                   <div class="slide-features jobu-grid--2-cols jobu-gap-md">
                     <div class="feature-item jobu-card--small jobu-text-center">
-                      <q-icon name="schedule" size="32px" class="jobu-text-accent jobu-mb-xs" />
+                      <q-icon name="schedule" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Horários flexíveis</div>
                     </div>
                     <div class="feature-item jobu-card--small jobu-text-center">
-                      <q-icon name="location_on" size="32px" class="jobu-text-accent jobu-mb-xs" />
+                      <q-icon name="location_on" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Trabalho remoto</div>
                     </div>
                   </div>
@@ -169,12 +163,12 @@
               <q-carousel-slide name="portfolio" class="carousel-slide">
                 <div class="slide-content jobu-text-center">
                   <div class="slide-icon jobu-mb-lg">
-                    <q-icon name="collections" size="80px" class="jobu-text-accent" />
+                    <q-icon name="collections" size="80px" class="text-secondary" />
                   </div>
                   <h2 class="jobu-text-2xl jobu-font-bold jobu-mb-md">Mostre seu talento</h2>
                   <p class="jobu-text-lg jobu-text-secondary jobu-mb-lg">
-                    Crie um portfólio impressionante que destaque suas habilidades 
-                    e conquiste mais clientes.
+                    Crie um portfólio impressionante que destaque suas habilidades e conquiste mais
+                    clientes.
                   </p>
                   <div class="slide-preview jobu-card jobu-card--highlight">
                     <div class="jobu-card-content">
@@ -191,24 +185,24 @@
               <q-carousel-slide name="earnings" class="carousel-slide">
                 <div class="slide-content jobu-text-center">
                   <div class="slide-icon jobu-mb-lg">
-                    <q-icon name="payments" size="80px" class="jobu-text-accent" />
+                    <q-icon name="payments" size="80px" class="text-secondary" />
                   </div>
                   <h2 class="jobu-text-2xl jobu-font-bold jobu-mb-md">Ganhe mais</h2>
                   <p class="jobu-text-lg jobu-text-secondary jobu-mb-lg">
-                    Defina seus próprios preços e receba pagamentos seguros 
-                    com nossa plataforma de proteção.
+                    Defina seus próprios preços e receba pagamentos seguros com nossa plataforma de
+                    proteção.
                   </p>
                   <div class="earnings-stats jobu-grid--3-cols jobu-gap-md">
                     <div class="stat-item jobu-text-center">
-                      <div class="stat-number jobu-text-2xl jobu-font-bold jobu-text-accent">95%</div>
+                      <div class="stat-number jobu-text-2xl jobu-font-bold text-secondary">95%</div>
                       <div class="stat-label jobu-text-xs jobu-text-secondary">Satisfação</div>
                     </div>
                     <div class="stat-item jobu-text-center">
-                      <div class="stat-number jobu-text-2xl jobu-font-bold jobu-text-accent">24h</div>
+                      <div class="stat-number jobu-text-2xl jobu-font-bold text-secondary">24h</div>
                       <div class="stat-label jobu-text-xs jobu-text-secondary">Suporte</div>
                     </div>
                     <div class="stat-item jobu-text-center">
-                      <div class="stat-number jobu-text-2xl jobu-font-bold jobu-text-accent">0%</div>
+                      <div class="stat-number jobu-text-2xl jobu-font-bold text-secondary">0%</div>
                       <div class="stat-label jobu-text-xs jobu-text-secondary">Taxa inicial</div>
                     </div>
                   </div>
@@ -221,20 +215,22 @@
               <q-carousel-slide name="welcome" class="carousel-slide">
                 <div class="slide-content jobu-text-center">
                   <div class="slide-icon jobu-mb-lg">
-                    <q-icon name="search" size="80px" class="jobu-text-accent" />
+                    <q-icon name="search" size="80px" class="text-secondary" />
                   </div>
-                  <h2 class="jobu-text-2xl jobu-font-bold jobu-mb-md">Encontre o profissional ideal</h2>
+                  <h2 class="jobu-text-2xl jobu-font-bold jobu-mb-md">
+                    Encontre o profissional ideal
+                  </h2>
                   <p class="jobu-text-lg jobu-text-secondary jobu-mb-lg">
-                    Acesse milhares de freelancers qualificados e encontre 
-                    o especialista perfeito para seu projeto.
+                    Acesse milhares de freelancers qualificados e encontre o especialista perfeito
+                    para seu projeto.
                   </p>
                   <div class="slide-features jobu-grid--2-cols jobu-gap-md">
                     <div class="feature-item jobu-card--small jobu-text-center">
-                      <q-icon name="verified_user" size="32px" class="jobu-text-accent jobu-mb-xs" />
+                      <q-icon name="verified_user" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Perfis verificados</div>
                     </div>
                     <div class="feature-item jobu-card--small jobu-text-center">
-                      <q-icon name="star" size="32px" class="jobu-text-accent jobu-mb-xs" />
+                      <q-icon name="star" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Avaliações reais</div>
                     </div>
                   </div>
@@ -244,12 +240,12 @@
               <q-carousel-slide name="projects" class="carousel-slide">
                 <div class="slide-content jobu-text-center">
                   <div class="slide-icon jobu-mb-lg">
-                    <q-icon name="assignment" size="80px" class="jobu-text-accent" />
+                    <q-icon name="assignment" size="80px" class="text-secondary" />
                   </div>
                   <h2 class="jobu-text-2xl jobu-font-bold jobu-mb-md">Gerencie projetos</h2>
                   <p class="jobu-text-lg jobu-text-secondary jobu-mb-lg">
-                    Acompanhe o progresso, comunique-se com freelancers e 
-                    mantenha tudo organizado em um só lugar.
+                    Acompanhe o progresso, comunique-se com freelancers e mantenha tudo organizado
+                    em um só lugar.
                   </p>
                   <div class="project-preview jobu-card jobu-card--highlight">
                     <div class="jobu-card-content">
@@ -268,20 +264,20 @@
               <q-carousel-slide name="security" class="carousel-slide">
                 <div class="slide-content jobu-text-center">
                   <div class="slide-icon jobu-mb-lg">
-                    <q-icon name="security" size="80px" class="jobu-text-accent" />
+                    <q-icon name="security" size="80px" class="text-secondary" />
                   </div>
                   <h2 class="jobu-text-2xl jobu-font-bold jobu-mb-md">Pagamento seguro</h2>
                   <p class="jobu-text-lg jobu-text-secondary jobu-mb-lg">
-                    Sistema de escrow que protege seu investimento. 
-                    Pague apenas quando ficar satisfeito com o resultado.
+                    Sistema de escrow que protege seu investimento. Pague apenas quando ficar
+                    satisfeito com o resultado.
                   </p>
                   <div class="security-features jobu-grid--2-cols jobu-gap-md">
                     <div class="feature-item jobu-card--small jobu-text-center">
-                      <q-icon name="shield" size="32px" class="jobu-text-accent jobu-mb-xs" />
+                      <q-icon name="shield" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Proteção total</div>
                     </div>
                     <div class="feature-item jobu-card--small jobu-text-center">
-                      <q-icon name="credit_card" size="32px" class="jobu-text-accent jobu-mb-xs" />
+                      <q-icon name="credit_card" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Múltiplos métodos</div>
                     </div>
                   </div>
@@ -293,12 +289,7 @@
 
         <!-- Actions -->
         <div class="onboarding-actions jobu-flex jobu-justify-between jobu-mt-xl">
-          <q-btn
-            flat
-            label="Pular"
-            class="jobu-btn--ghost"
-            @click="finishOnboarding"
-          />
+          <q-btn flat label="Pular" class="jobu-btn--ghost" @click="finishOnboarding" />
           <q-btn
             :label="isLastSlide ? 'Começar' : 'Próximo'"
             class="jobu-btn jobu-btn--primary"
@@ -349,17 +340,20 @@ const getParticleStyle = (index) => {
   }
 }
 
-const goToIntro = () => {
-  step.value = 2
-  slide.value = 'welcome'
-  currentSlideIndex.value = 0
+const nextStep = () => {
+  if (group.value) {
+    step.value = 2
+    slide.value = 'welcome'
+    currentSlideIndex.value = 0
+  }
 }
 
 const updateProgress = (newSlide) => {
-  const slides = group.value === 'freelancer' 
-    ? ['welcome', 'portfolio', 'earnings']
-    : ['welcome', 'projects', 'security']
-  
+  const slides =
+    group.value === 'freelancer'
+      ? ['welcome', 'portfolio', 'earnings']
+      : ['welcome', 'projects', 'security']
+
   currentSlideIndex.value = slides.indexOf(newSlide)
 }
 
@@ -367,10 +361,11 @@ const nextSlideOrFinish = () => {
   if (isLastSlide.value) {
     finishOnboarding()
   } else {
-    const slides = group.value === 'freelancer' 
-      ? ['welcome', 'portfolio', 'earnings']
-      : ['welcome', 'projects', 'security']
-    
+    const slides =
+      group.value === 'freelancer'
+        ? ['welcome', 'portfolio', 'earnings']
+        : ['welcome', 'projects', 'security']
+
     const nextIndex = currentSlideIndex.value + 1
     if (nextIndex < slides.length) {
       slide.value = slides[nextIndex]
@@ -379,11 +374,11 @@ const nextSlideOrFinish = () => {
 }
 
 const finishOnboarding = () => {
-  // Redirect based on user type
+  // Redirect based on user type to unified profile
   if (group.value === 'freelancer') {
-    router.push('/freelancer-hub')
+    router.push('/profile/freelancer')
   } else {
-    router.push('/client-profile')
+    router.push('/profile/client')
   }
 }
 
@@ -391,7 +386,7 @@ onMounted(() => {
   // Add entrance animations
   setTimeout(() => {
     const elements = document.querySelectorAll('.profile-option, .intro-header')
-    elements.forEach(el => el.classList.add('animate-in'))
+    elements.forEach((el) => el.classList.add('animate-in'))
   }, 300)
 })
 </script>
@@ -401,6 +396,8 @@ onMounted(() => {
   overflow: hidden;
   position: relative;
   min-height: 100vh;
+  background: var(--jobu-bg-dark);
+  color: var(--jobu-text-primary);
 }
 
 .intro-content {
@@ -415,7 +412,8 @@ onMounted(() => {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--jobu-accent) 0%, lighten(var(--jobu-accent), 10%) 100%);
+  background: var(--jobu-bg-glass);
+  border: 2px solid var(--jobu-border-glass);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -424,11 +422,14 @@ onMounted(() => {
 }
 
 @keyframes logoGlow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 184, 148, 0.3);
+  0%,
+  100% {
+    box-shadow: 0 0 20px var(--jobu-shadow-glow);
   }
   50% {
-    box-shadow: 0 0 30px rgba(0, 184, 148, 0.6);
+    box-shadow:
+      0 0 30px var(--jobu-shadow-glow),
+      0 0 40px rgba(0, 184, 148, 0.4);
   }
 }
 
@@ -436,55 +437,104 @@ onMounted(() => {
 .profile-options {
   max-width: 800px;
   margin: 0 auto;
-  
+
   .profile-option {
     padding: var(--jobu-space-xl);
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    
+    transition: all var(--jobu-transition-normal);
+    border: 2px solid var(--jobu-border-subtle);
+    background: var(--jobu-bg-glass);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    visibility: visible !important;
+    opacity: 1;
+    display: block !important;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(0, 184, 148, 0.05) 100%);
+      opacity: 0;
+      transition: opacity var(--jobu-transition-normal);
+    }
+
     &:hover {
       transform: translateY(-5px);
-      border-color: rgba(0, 184, 148, 0.3);
+      border-color: var(--jobu-border-glass);
+      box-shadow: var(--jobu-shadow-medium);
+
+      &::before {
+        opacity: 1;
+      }
     }
-    
+
     &.option-active {
-      border-color: var(--jobu-accent);
-      background: rgba(0, 184, 148, 0.1);
+      border-color: var(--jobu-secondary);
+      background: var(--jobu-bg-glass-active);
+      box-shadow: var(--jobu-shadow-glow);
+
+      &::before {
+        opacity: 1;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 184, 148, 0.1) 0%,
+          rgba(0, 184, 148, 0.05) 100%
+        );
+      }
     }
   }
-  
+
   .option-features {
     text-align: left;
+  }
+
+  .option-icon {
+    transition: all var(--jobu-transition-normal);
   }
 }
 
 // Onboarding
+.onboarding-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .progress-container {
   .progress-bar {
     height: 4px;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--jobu-border-subtle);
     border-radius: 2px;
     overflow: hidden;
-    
+
     .progress-fill {
       height: 100%;
-      background: var(--jobu-accent);
-      transition: width 0.3s ease;
+      background: var(--jobu-secondary);
+      transition: width var(--jobu-transition-normal);
+      box-shadow: 0 0 10px rgba(0, 184, 148, 0.5);
     }
   }
 }
 
 .onboarding-carousel {
   height: 500px;
-  
+  background: var(--jobu-bg-glass);
+  border: 1px solid var(--jobu-border-subtle);
+  border-radius: var(--jobu-radius-lg);
+  backdrop-filter: blur(10px);
+
   .carousel-slide {
     padding: var(--jobu-space-xl);
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
+
   .slide-content {
     max-width: 600px;
     width: 100%;
@@ -501,47 +551,80 @@ onMounted(() => {
 
 .feature-item {
   padding: var(--jobu-space-md);
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
+  background: var(--jobu-bg-glass);
+  border: 1px solid var(--jobu-border-subtle);
+  border-radius: var(--jobu-radius-sm);
+  backdrop-filter: blur(5px);
+  transition: all var(--jobu-transition-normal);
+
+  &:hover {
+    background: var(--jobu-bg-glass-hover);
+    border-color: var(--jobu-border-glass);
+    transform: translateY(-2px);
+  }
 }
 
 .preview-items {
   .preview-item {
     width: 60px;
     height: 40px;
-    background: linear-gradient(135deg, var(--jobu-accent) 0%, lighten(var(--jobu-accent), 20%) 100%);
+    background: linear-gradient(135deg, var(--jobu-secondary) 0%, var(--jobu-accent) 100%);
     border-radius: 4px;
+    box-shadow: var(--jobu-shadow-small);
   }
 }
 
 .project-preview {
   max-width: 300px;
   margin: 0 auto;
-  
+  background: var(--jobu-bg-glass);
+  border: 1px solid var(--jobu-border-subtle);
+  border-radius: var(--jobu-radius-sm);
+
   .progress-mini {
     height: 4px;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--jobu-border-subtle);
     border-radius: 2px;
     overflow: hidden;
-    
+
     .progress-mini-fill {
       height: 100%;
-      background: var(--jobu-accent);
+      background: var(--jobu-secondary);
+      box-shadow: 0 0 8px rgba(0, 184, 148, 0.4);
     }
   }
 }
 
 // Animations
-.profile-option,
-.intro-header {
+.profile-selection {
+  transition: all var(--jobu-transition-normal);
+  opacity: 1;
+}
+
+.profile-option {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s ease;
-  
+
   &.animate-in {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.intro-header {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.selection-container {
+  transition: all var(--jobu-transition-normal);
 }
 
 // Mobile responsiveness
@@ -549,17 +632,17 @@ onMounted(() => {
   .intro-content {
     padding: var(--jobu-space-lg);
   }
-  
+
   .profile-options {
     grid-template-columns: 1fr;
   }
-  
+
   .slide-features,
   .earnings-stats,
   .security-features {
     grid-template-columns: 1fr;
   }
-  
+
   .onboarding-actions {
     flex-direction: column;
     gap: var(--jobu-space-md);

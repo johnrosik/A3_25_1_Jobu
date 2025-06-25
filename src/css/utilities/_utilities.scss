@@ -518,22 +518,27 @@
 }
 
 .jobu-grid--1-cols {
+  @extend .jobu-grid;
   grid-template-columns: 1fr;
 }
 
 .jobu-grid--2-cols {
+  @extend .jobu-grid;
   grid-template-columns: repeat(2, 1fr);
 }
 
 .jobu-grid--3-cols {
+  @extend .jobu-grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
 .jobu-grid--4-cols {
+  @extend .jobu-grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
 .jobu-grid--auto-fit {
+  @extend .jobu-grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
@@ -574,15 +579,11 @@
   padding: var(--jobu-space-2xl) 0;
 
   &--alt {
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--jobu-bg-glass);
+    backdrop-filter: blur(10px);
   }
-
   &--highlight {
-    background: linear-gradient(
-      135deg,
-      var(--jobu-primary) 0%,
-      lighten(var(--jobu-primary), 5%) 100%
-    );
+    background: linear-gradient(135deg, var(--jobu-primary) 0%, rgba(30, 30, 30, 0.9) 100%);
   }
 }
 
@@ -636,4 +637,23 @@
 }
 .jobu-opacity-100 {
   opacity: 1;
+}
+
+// Flex Center Utilities (combinações comuns)
+.jobu-flex-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.jobu-flex-between {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.jobu-flex-around {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
 }

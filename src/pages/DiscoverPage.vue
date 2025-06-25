@@ -179,68 +179,14 @@
           </p>
           <div class="cta-buttons jobu-flex jobu-flex-center jobu-gap-lg">
             <q-btn
-              label="Começar como Freelancer"
+              label="Começar Agora"
               class="jobu-btn jobu-btn--primary jobu-btn--large"
-              @click="$router.push('/freelancer-hub')"
+              @click="$router.push('/profile')"
             />
             <q-btn
-              label="Contratar Talentos"
+              label="Fazer Login"
               class="jobu-btn jobu-btn--outline jobu-btn--large"
-              @click="$router.push('/client-profile')"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quick Navigation -->
-    <section class="quick-nav-section jobu-section">
-      <div class="jobu-container">
-        <div class="nav-grid jobu-grid--3-cols jobu-gap-lg">
-          <div class="nav-card jobu-card jobu-card--interactive jobu-text-center">
-            <div class="nav-icon jobu-mb-lg">
-              <q-icon name="person_add" size="3rem" class="jobu-text-accent" />
-            </div>
-            <h3 class="nav-title jobu-text-xl jobu-font-semibold jobu-mb-md">Perfil Freelancer</h3>
-            <p class="nav-description jobu-text-secondary jobu-mb-lg">
-              Explore e edite seu perfil profissional completo
-            </p>
-            <q-btn
-              label="Acessar"
-              class="jobu-btn jobu-btn--secondary"
-              @click="$router.push('/freelancer-hub')"
-            />
-          </div>
-
-          <div class="nav-card jobu-card jobu-card--interactive jobu-text-center">
-            <div class="nav-icon jobu-mb-lg">
-              <q-icon name="business" size="3rem" class="jobu-text-accent" />
-            </div>
-            <h3 class="nav-title jobu-text-xl jobu-font-semibold jobu-mb-md">Perfil Cliente</h3>
-            <p class="nav-description jobu-text-secondary jobu-mb-lg">
-              Gerencie projetos e encontre profissionais
-            </p>
-            <q-btn
-              label="Acessar"
-              class="jobu-btn jobu-btn--secondary"
-              @click="$router.push('/client-profile')"
-            />
-          </div>
-
-          <div class="nav-card jobu-card jobu-card--interactive jobu-text-center">
-            <div class="nav-icon jobu-mb-lg">
-              <q-icon name="payment" size="3rem" class="jobu-text-accent" />
-            </div>
-            <h3 class="nav-title jobu-text-xl jobu-font-semibold jobu-mb-md">
-              Sistema de Pagamento
-            </h3>
-            <p class="nav-description jobu-text-secondary jobu-mb-lg">
-              Demonstração da plataforma de pagamentos
-            </p>
-            <q-btn
-              label="Testar"
-              class="jobu-btn jobu-btn--secondary"
-              @click="$router.push('/pagamento')"
+              @click="$router.push('/login')"
             />
           </div>
         </div>
@@ -275,12 +221,32 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .discover-page {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(0, 184, 148, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(176, 190, 197, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
   .hero-section {
     padding: var(--jobu-space-3xl) 0;
 
     .floating-card {
       padding: var(--jobu-space-xl);
       animation: float 6s ease-in-out infinite;
+      background: linear-gradient(135deg, rgba(0, 184, 148, 0.1) 0%, rgba(176, 190, 197, 0.1) 100%);
+      border: 2px solid rgba(0, 184, 148, 0.3);
+      backdrop-filter: blur(10px);
     }
   }
 
@@ -288,17 +254,45 @@ onMounted(() => {
     padding: var(--jobu-space-3xl) 0;
 
     .feature-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0, 184, 148, 0.2);
       text-align: center;
       transition: transform 0.3s ease;
 
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0, 184, 148, 0.1), transparent);
+        transition: left 0.5s ease;
+      }
+
+      &:hover::before {
+        left: 100%;
+      }
+
       &:hover {
         transform: translateY(-8px);
+        border-color: rgba(0, 184, 148, 0.4);
+        box-shadow: 0 10px 30px rgba(0, 184, 148, 0.2);
       }
     }
   }
 
   .stats-section {
     padding: var(--jobu-space-2xl) 0;
+
+    .stat-number {
+      background: linear-gradient(135deg, var(--jobu-accent) 0%, var(--jobu-secondary) 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0, 184, 148, 0.3));
+    }
   }
 
   .steps-section {
@@ -320,6 +314,8 @@ onMounted(() => {
 
   .cta-section {
     padding: var(--jobu-space-3xl) 0;
+    background: linear-gradient(135deg, rgba(0, 184, 148, 0.1) 0%, rgba(176, 190, 197, 0.1) 100%);
+    border-radius: 30px 30px 0 0;
 
     .cta-content {
       max-width: 600px;
@@ -336,10 +332,16 @@ onMounted(() => {
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-5px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(-1deg);
   }
 }
 

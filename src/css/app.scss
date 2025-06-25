@@ -67,7 +67,9 @@ body {
 // Cards
 .q-card {
   @include jobu-glass-card;
-  color: var(--jobu-text-primary);
+  color: var(--jobu-text-primary) !important;
+  background: var(--jobu-bg-glass) !important;
+  backdrop-filter: blur(20px) !important;
 }
 
 // Inputs and Fields
@@ -249,9 +251,9 @@ body {
 
 // Page containers
 .page-container {
-  @include jobu-container;
   padding-top: var(--jobu-space-xl);
   padding-bottom: var(--jobu-space-xl);
+  @include jobu-container;
 
   @include jobu-responsive(mobile) {
     padding-top: var(--jobu-space-lg);
@@ -263,9 +265,10 @@ body {
 .section-header {
   @include jobu-flex-between;
   margin-bottom: var(--jobu-space-lg);
-
   .section-title {
-    @include jobu-title--medium;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--jobu-text-accent);
     margin: 0;
   }
 }
