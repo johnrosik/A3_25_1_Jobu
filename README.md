@@ -36,7 +36,7 @@ Um projeto de faculdade, que conecta freelancers com clientes em todo o Brasil.
 - [@IFTnomai](https://www.github.com/IFTnomai)
 - [@iraMlemmaH](https://www.github.com/iraMlemmaH)
 
-## Funcionalidades
+## Funcionalidades Em Desenvolvimento
 
 💬 Chat em tempo real – Comunicação instantânea entre usuários com atualizações automáticas.
 
