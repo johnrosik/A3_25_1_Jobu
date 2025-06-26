@@ -44,67 +44,76 @@
     <!-- Content -->
     <div class="jobu-content page-container">
       <!-- Profile Card -->
-      <div class="profile-card jobu-card jobu-card--highlight jobu-mb-xl">
-        <div class="profile-content jobu-flex jobu-items-center jobu-gap-lg">
-          <div class="avatar-container">
-            <q-avatar size="120px" class="profile-avatar">
-              <img :src="userProfile.avatar" alt="Profile" />
-            </q-avatar>
-            <div class="avatar-status" :class="statusClass"></div>
-          </div>
-
-          <div class="profile-info jobu-flex-1">
-            <h3 class="profile-name jobu-text-2xl jobu-font-bold jobu-text-primary jobu-mb-xs">
-              {{ userProfile.nome }}
-            </h3>
-            <p class="profile-type jobu-text-lg jobu-text-secondary jobu-mb-md">
-              {{ userTypeLabel }}
-            </p>
-            <p
-              v-if="userProfile.categoria"
-              class="profile-category jobu-text-md jobu-text-secondary jobu-mb-md"
-            >
-              {{ userProfile.categoria }}
-            </p>
-
-            <!-- Rating section (only for freelancers) -->
-            <div
-              v-if="userType === 'freelancer'"
-              class="rating-section jobu-flex jobu-items-center jobu-gap-xs jobu-mb-lg"
-            >
-              <q-icon name="star" color="amber" size="20px" />
-              <span class="jobu-text-semibold">{{ userProfile.rating }}</span>
-              <span class="jobu-text-sm jobu-text-secondary">
-                ({{ userProfile.avaliacoes }} avaliações)
-              </span>
-            </div>
-
-            <div class="profile-stats jobu-flex jobu-gap-md jobu-flex-wrap">
-              <div class="stat-item jobu-flex jobu-items-center jobu-gap-xs">
-                <q-icon
-                  :name="userType === 'freelancer' ? 'work' : 'person'"
-                  size="20px"
-                  class="text-secondary"
-                />
-                <span class="jobu-text-sm">{{ userTypeLabel }}</span>
+      <div class="profile-card-wrapper">
+        <div class="profile-card jobu-card jobu-card--highlight jobu-mb-xl">
+          <div class="profile-content">
+            <div class="profile-header">
+              <div class="avatar-section">
+                <div class="avatar-container">
+                  <q-avatar size="120px" class="profile-avatar">
+                    <img :src="userProfile.avatar" alt="Profile" />
+                  </q-avatar>
+                  <div class="avatar-status" :class="statusClass"></div>
+                </div>
               </div>
-              <div class="stat-item jobu-flex jobu-items-center jobu-gap-xs">
-                <q-icon name="assignment" size="20px" class="text-secondary" />
-                <span class="jobu-text-sm"
-                  >{{ userProfile.projetos }}
-                  {{ userType === 'freelancer' ? 'Projetos Concluídos' : 'Projetos Criados' }}</span
-                >
-              </div>
-              <div
-                v-if="userType === 'freelancer'"
-                class="stat-item jobu-flex jobu-items-center jobu-gap-xs"
-              >
-                <q-icon name="monetization_on" size="20px" class="text-secondary" />
-                <span class="jobu-text-sm">R$ {{ userProfile.ganhos || '0' }} Ganhos</span>
-              </div>
-              <div class="stat-item jobu-flex jobu-items-center jobu-gap-xs">
-                <q-icon name="verified" size="20px" class="text-positive" />
-                <span class="jobu-text-sm">Verificado</span>
+
+              <div class="profile-info-section">
+                <div class="profile-basic-info jobu-mb-lg">
+                  <h3
+                    class="profile-name jobu-text-2xl jobu-font-bold jobu-text-primary jobu-mb-xs"
+                  >
+                    {{ userProfile.nome }}
+                  </h3>
+                  <p class="profile-type jobu-text-lg jobu-text-secondary jobu-mb-sm">
+                    {{ userTypeLabel }}
+                  </p>
+                  <p
+                    v-if="userProfile.categoria"
+                    class="profile-category jobu-text-md jobu-text-secondary jobu-mb-md"
+                  >
+                    {{ userProfile.categoria }}
+                  </p>
+
+                  <!-- Rating section (only for freelancers) -->
+                  <div
+                    v-if="userType === 'freelancer'"
+                    class="rating-section jobu-flex jobu-items-center jobu-gap-xs jobu-mb-md"
+                  >
+                    <q-icon name="star" color="amber" size="20px" />
+                    <span class="jobu-text-semibold">{{ userProfile.rating }}</span>
+                    <span class="jobu-text-sm jobu-text-secondary">
+                      ({{ userProfile.avaliacoes }} avaliações)
+                    </span>
+                  </div>
+                </div>
+
+                <div class="profile-stats">
+                  <div class="stats-grid">
+                    <div class="stat-item">
+                      <q-icon
+                        :name="userType === 'freelancer' ? 'work' : 'person'"
+                        size="20px"
+                        class="stat-icon"
+                      />
+                      <span class="stat-text">{{ userTypeLabel }}</span>
+                    </div>
+                    <div class="stat-item">
+                      <q-icon name="assignment" size="20px" class="stat-icon" />
+                      <span class="stat-text"
+                        >{{ userProfile.projetos }}
+                        {{ userType === 'freelancer' ? 'Projetos' : 'Projetos' }}</span
+                      >
+                    </div>
+                    <div v-if="userType === 'freelancer'" class="stat-item">
+                      <q-icon name="monetization_on" size="20px" class="stat-icon" />
+                      <span class="stat-text">R$ {{ userProfile.ganhos || '0' }}</span>
+                    </div>
+                    <div class="stat-item stat-verified">
+                      <q-icon name="verified" size="20px" class="stat-icon" />
+                      <span class="stat-text">Verificado</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -818,13 +827,33 @@ onMounted(() => {
   z-index: 10;
 }
 
+.profile-card-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--jobu-space-xl);
+}
+
 .profile-card {
-  background: var(--jobu-bg-glass);
+  background: rgba(26, 26, 26, 0.85) !important;
   border: 1px solid var(--jobu-border-subtle);
   backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 900px;
 
   .profile-content {
-    padding: var(--jobu-space-xl);
+    padding: var(--jobu-space-2xl);
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--jobu-space-xl);
+  }
+
+  .avatar-section {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
   .avatar-container {
@@ -833,6 +862,13 @@ onMounted(() => {
     .profile-avatar {
       border: 3px solid var(--jobu-border-glass);
       box-shadow: var(--jobu-shadow-medium);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
     }
 
     .avatar-status {
@@ -851,13 +887,74 @@ onMounted(() => {
     }
   }
 
-  .profile-stats {
-    .stat-item {
-      background: var(--jobu-bg-glass);
-      padding: var(--jobu-space-sm) var(--jobu-space-md);
-      border-radius: var(--jobu-radius-sm);
-      border: 1px solid var(--jobu-border-subtle);
-      backdrop-filter: blur(5px);
+  .profile-info-section {
+    flex: 1;
+    min-width: 0;
+
+    .profile-basic-info {
+      .profile-name {
+        line-height: 1.2;
+        word-break: break-word;
+      }
+
+      .profile-type {
+        font-weight: 500;
+        opacity: 0.9;
+      }
+
+      .profile-category {
+        font-style: italic;
+        opacity: 0.8;
+      }
+
+      .rating-section {
+        align-items: center;
+      }
+    }
+
+    .profile-stats {
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: var(--jobu-space-sm);
+        margin-top: var(--jobu-space-md);
+      }
+
+      .stat-item {
+        background: rgba(26, 26, 26, 0.6) !important;
+        border: 1px solid var(--jobu-border-subtle);
+        border-radius: var(--jobu-radius-sm);
+        padding: var(--jobu-space-sm) var(--jobu-space-md);
+        display: flex;
+        align-items: center;
+        gap: var(--jobu-space-xs);
+        backdrop-filter: blur(5px);
+        transition: all var(--jobu-transition-normal);
+
+        &:hover {
+          background: rgba(26, 26, 26, 0.8) !important;
+          border-color: var(--jobu-border-glass);
+        }
+
+        .stat-icon {
+          color: var(--jobu-text-secondary);
+          flex-shrink: 0;
+        }
+
+        .stat-text {
+          font-size: 0.875rem;
+          color: var(--jobu-text-primary);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        &.stat-verified {
+          .stat-icon {
+            color: var(--jobu-secondary);
+          }
+        }
+      }
     }
   }
 }
@@ -892,7 +989,18 @@ onMounted(() => {
     color: var(--jobu-text-primary);
     border-bottom: 2px solid var(--jobu-secondary);
     padding-bottom: var(--jobu-space-xs);
-    margin-bottom: var(--jobu-space-md);
+    margin-bottom: var(--jobu-space-lg);
+    text-align: left;
+  }
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--jobu-space-md);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -904,9 +1012,10 @@ onMounted(() => {
   background: var(--jobu-bg-glass);
   border: 1px solid var(--jobu-border-subtle);
   border-radius: var(--jobu-radius-md);
-  padding: var(--jobu-space-md);
+  padding: var(--jobu-space-lg);
   transition: all var(--jobu-transition-normal);
   backdrop-filter: blur(5px);
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-2px);
@@ -924,6 +1033,25 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .action-content {
+    flex: 1;
+    min-width: 0;
+
+    .action-title {
+      color: var(--jobu-text-primary);
+      font-size: 1rem;
+      line-height: 1.2;
+      margin-bottom: var(--jobu-space-xs);
+    }
+
+    .action-subtitle {
+      color: var(--jobu-text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.3;
+    }
   }
 }
 
@@ -982,15 +1110,56 @@ onMounted(() => {
     padding: var(--jobu-space-md);
   }
 
-  .profile-content {
-    flex-direction: column;
-    text-align: center;
-    padding: var(--jobu-space-lg);
+  .profile-card-wrapper {
+    margin-bottom: var(--jobu-space-lg);
   }
 
-  .profile-stats {
-    justify-content: center;
-    flex-wrap: wrap;
+  .profile-card {
+    max-width: 100%;
+
+    .profile-content {
+      padding: var(--jobu-space-lg);
+    }
+
+    .profile-header {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--jobu-space-lg);
+      text-align: center;
+    }
+
+    .avatar-section {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .profile-info-section {
+      width: 100%;
+
+      .profile-basic-info {
+        text-align: center;
+        margin-bottom: var(--jobu-space-md);
+
+        .profile-name {
+          font-size: 1.75rem;
+        }
+      }
+
+      .profile-stats {
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--jobu-space-xs);
+        }
+
+        .stat-item {
+          padding: var(--jobu-space-xs) var(--jobu-space-sm);
+
+          .stat-text {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
   }
 
   .form-grid {
@@ -1006,6 +1175,10 @@ onMounted(() => {
     .q-tab {
       font-size: 0.8rem;
     }
+  }
+
+  .tabs-container {
+    margin-top: var(--jobu-space-lg);
   }
 }
 

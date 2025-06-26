@@ -148,11 +148,11 @@
                     preços e trabalhar quando quiser.
                   </p>
                   <div class="slide-features jobu-grid--2-cols jobu-gap-md">
-                    <div class="feature-item jobu-card--small jobu-text-center">
+                    <div class="feature-item jobu-text-center">
                       <q-icon name="schedule" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Horários flexíveis</div>
                     </div>
-                    <div class="feature-item jobu-card--small jobu-text-center">
+                    <div class="feature-item jobu-text-center">
                       <q-icon name="location_on" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Trabalho remoto</div>
                     </div>
@@ -225,11 +225,11 @@
                     para seu projeto.
                   </p>
                   <div class="slide-features jobu-grid--2-cols jobu-gap-md">
-                    <div class="feature-item jobu-card--small jobu-text-center">
+                    <div class="feature-item jobu-text-center">
                       <q-icon name="verified_user" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Perfis verificados</div>
                     </div>
-                    <div class="feature-item jobu-card--small jobu-text-center">
+                    <div class="feature-item jobu-text-center">
                       <q-icon name="star" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Avaliações reais</div>
                     </div>
@@ -272,11 +272,11 @@
                     satisfeito com o resultado.
                   </p>
                   <div class="security-features jobu-grid--2-cols jobu-gap-md">
-                    <div class="feature-item jobu-card--small jobu-text-center">
+                    <div class="feature-item jobu-text-center">
                       <q-icon name="shield" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Proteção total</div>
                     </div>
-                    <div class="feature-item jobu-card--small jobu-text-center">
+                    <div class="feature-item jobu-text-center">
                       <q-icon name="credit_card" size="32px" class="text-secondary jobu-mb-xs" />
                       <div class="jobu-text-sm">Múltiplos métodos</div>
                     </div>
@@ -523,7 +523,7 @@ onMounted(() => {
 
 .onboarding-carousel {
   height: 500px;
-  background: var(--jobu-bg-glass);
+  background: rgba(26, 26, 26, 0.85) !important;
   border: 1px solid var(--jobu-border-subtle);
   border-radius: var(--jobu-radius-lg);
   backdrop-filter: blur(10px);
@@ -533,11 +533,60 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: transparent !important;
   }
 
   .slide-content {
     max-width: 600px;
     width: 100%;
+    color: var(--jobu-text-primary) !important;
+
+    h2 {
+      color: var(--jobu-text-primary) !important;
+    }
+
+    p {
+      color: var(--jobu-text-secondary) !important;
+    }
+
+    .stat-number {
+      color: var(--jobu-secondary) !important;
+    }
+
+    .stat-label {
+      color: var(--jobu-text-secondary) !important;
+    }
+  }
+
+  // Forçar background dos elementos Quasar
+  .q-carousel__slide {
+    background: transparent !important;
+  }
+
+  .q-carousel {
+    background: transparent !important;
+  }
+}
+
+// Forçar estilos escuros para todos os elementos do carousel
+.intro-carousel {
+  background: rgba(26, 26, 26, 0.85) !important;
+
+  .q-carousel__slide,
+  .q-carousel__slide > div,
+  .q-panel,
+  .q-tab-panel {
+    background: transparent !important;
+  }
+
+  // Forçar background escuro específico para feature items
+  .feature-item,
+  .stat-item {
+    background: rgba(26, 26, 26, 0.85) !important;
+
+    * {
+      color: var(--jobu-text-primary) !important;
+    }
   }
 }
 
@@ -547,20 +596,46 @@ onMounted(() => {
 .security-features {
   max-width: 400px;
   margin: 0 auto;
+
+  .stat-item {
+    padding: var(--jobu-space-sm);
+    background: rgba(26, 26, 26, 0.85) !important;
+    border: 1px solid var(--jobu-border-subtle);
+    border-radius: var(--jobu-radius-sm);
+    backdrop-filter: blur(10px) !important;
+    transition: all var(--jobu-transition-normal);
+    color: var(--jobu-text-primary) !important;
+
+    &:hover {
+      background: rgba(0, 184, 148, 0.15) !important;
+      transform: translateY(-2px);
+    }
+  }
 }
 
 .feature-item {
-  padding: var(--jobu-space-md);
-  background: var(--jobu-bg-glass);
-  border: 1px solid var(--jobu-border-subtle);
-  border-radius: var(--jobu-radius-sm);
-  backdrop-filter: blur(5px);
-  transition: all var(--jobu-transition-normal);
+  padding: var(--jobu-space-md) !important;
+  background: rgba(26, 26, 26, 0.85) !important;
+  border: 1px solid var(--jobu-border-subtle) !important;
+  border-radius: var(--jobu-radius-sm) !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all var(--jobu-transition-normal) !important;
+  color: var(--jobu-text-primary) !important;
 
   &:hover {
-    background: var(--jobu-bg-glass-hover);
-    border-color: var(--jobu-border-glass);
-    transform: translateY(-2px);
+    background: rgba(0, 184, 148, 0.15) !important;
+    border-color: var(--jobu-border-glass) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: var(--jobu-shadow-glow) !important;
+  }
+
+  .q-icon {
+    color: var(--jobu-secondary) !important;
+  }
+
+  .jobu-text-sm,
+  div {
+    color: var(--jobu-text-primary) !important;
   }
 }
 
@@ -577,9 +652,11 @@ onMounted(() => {
 .project-preview {
   max-width: 300px;
   margin: 0 auto;
-  background: var(--jobu-bg-glass);
+  background: var(--jobu-bg-glass) !important;
   border: 1px solid var(--jobu-border-subtle);
   border-radius: var(--jobu-radius-sm);
+  backdrop-filter: blur(10px) !important;
+  color: var(--jobu-text-primary) !important;
 
   .progress-mini {
     height: 4px;

@@ -72,6 +72,19 @@ body {
   backdrop-filter: blur(20px) !important;
 }
 
+// Carousel - Força background escuro
+.q-carousel {
+  background: rgba(26, 26, 26, 0.85) !important;
+
+  .q-carousel__slide {
+    background: transparent !important;
+  }
+
+  .q-panel {
+    background: transparent !important;
+  }
+}
+
 // Inputs and Fields
 .q-field {
   .q-field__control {

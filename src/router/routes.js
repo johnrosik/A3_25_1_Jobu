@@ -40,19 +40,9 @@ const routes = [
 
   // Páginas de serviços e funcionalidades
   {
-    path: '/servicos',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/ClientServicoSelectPage.vue') }],
-  },
-  {
     path: '/filtros',
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', component: () => import('pages/FilterPage.vue') }],
-  },
-  {
-    path: '/interesses',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/InterestPage.vue') }],
   },
   {
     path: '/pagamento',
