@@ -66,9 +66,7 @@
                   class="jobu-input jobu-mb-md"
                   filled
                   lazy-rules
-                  :rules="[
-                    (val) => (val && val.includes('@')) || 'Por favor, digite um e-mail válido',
-                  ]"
+                  :rules="[(val) => (val && val.includes('@')) || 'Por favor, digite um e-mail válido']"
                 />
 
                 <div class="jobu-text-sm jobu-text-secondary jobu-mb-lg">
@@ -85,9 +83,7 @@
                   class="jobu-input jobu-mb-md"
                   filled
                   lazy-rules
-                  :rules="[
-                    (val) => (val && val.includes('@')) || 'Por favor, digite um e-mail válido',
-                  ]"
+                  :rules="[(val) => (val && val.includes('@')) || 'Por favor, digite um e-mail válido']"
                 />
 
                 <q-input
@@ -170,6 +166,38 @@
             </div>
           </div>
         </div>
+
+        <!-- Demo section -->
+        <div class="jobu-card jobu-card--highlight jobu-mt-lg demo-section">
+          <div class="jobu-card-header">
+            <h4 class="card-title jobu-text-center">🚀 Demonstração Rápida</h4>
+          </div>
+          
+          <div class="jobu-card-content">
+            <div class="demo-buttons">
+              <q-btn
+                label="🧑‍💼 Perfil Cliente"
+                class="jobu-btn jobu-btn--outline demo-btn"
+                @click="goToClientProfile"
+              />
+              <q-btn
+                label="👨‍💻 Perfil Freelancer"
+                class="jobu-btn jobu-btn--outline demo-btn"
+                @click="goToFreelancerProfile"
+              />
+              <q-btn
+                label="🔍 Descobrir"
+                class="jobu-btn jobu-btn--outline demo-btn"
+                @click="goToDiscover"
+              />
+              <q-btn
+                label="💳 Pagamento"
+                class="jobu-btn jobu-btn--outline demo-btn"
+                @click="goToPayment"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </q-page>
@@ -220,17 +248,16 @@ const toggleForgotMode = () => {
 
 // Labels
 const getToggleLabel = () => {
-  return currentMode.value === 'login' ? 'Não tem conta? Registre-se' : 'Já tem conta? Faça login'
+  return currentMode.value === 'login' 
+    ? 'Não tem conta? Registre-se' 
+    : 'Já tem conta? Faça login'
 }
 
 const getSubmitLabel = () => {
   switch (currentMode.value) {
-    case 'register':
-      return 'Confirmar'
-    case 'forgot':
-      return 'Enviar Nova Senha'
-    default:
-      return 'Login'
+    case 'register': return 'Confirmar'
+    case 'forgot': return 'Enviar Nova Senha'
+    default: return 'Login'
   }
 }
 
@@ -269,6 +296,12 @@ const resetForm = () => {
   acceptTerms.value = false
   acceptNews.value = false
 }
+
+// Navigation functions
+const goToClientProfile = () => router.push('/client-profile')
+const goToFreelancerProfile = () => router.push('/freelancer-hub')
+const goToDiscover = () => router.push('/descubra')
+const goToPayment = () => router.push('/pagamento')
 </script>
 
 <style lang="scss" scoped>
@@ -288,8 +321,7 @@ const resetForm = () => {
 }
 
 @keyframes cardFloat {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px);
   }
   50% {
@@ -308,10 +340,10 @@ const resetForm = () => {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--jobu-space-md);
-
+    
     .demo-btn {
       transition: all 0.3s ease;
-
+      
       &:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
@@ -325,7 +357,7 @@ const resetForm = () => {
   .login-container {
     padding: var(--jobu-space-md);
   }
-
+  
   .demo-section .demo-buttons {
     grid-template-columns: 1fr;
   }

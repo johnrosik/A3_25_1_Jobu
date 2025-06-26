@@ -158,7 +158,12 @@
               class="jobu-mb-md"
             />
             <div class="rating-display jobu-flex jobu-items-center jobu-gap-xs">
-              <q-rating v-model="filters.avaliacao" size="20px" color="amber" readonly />
+              <q-rating
+                v-model="filters.avaliacao"
+                size="20px"
+                color="amber"
+                readonly
+              />
               <span class="jobu-text-sm">{{ filters.avaliacao }}+ estrelas</span>
             </div>
           </div>
@@ -270,7 +275,9 @@
               <div class="jobu-font-semibold jobu-text-primary">
                 {{ filteredResults }} freelancers encontrados
               </div>
-              <div class="jobu-text-sm jobu-text-secondary">Com base nos filtros selecionados</div>
+              <div class="jobu-text-sm jobu-text-secondary">
+                Com base nos filtros selecionados
+              </div>
             </div>
             <q-icon name="search" size="24px" class="jobu-text-accent" />
           </div>
@@ -317,8 +324,8 @@ const filters = reactive({
   disponibilidade: {
     imediata: false,
     tempoIntegral: false,
-    fimDeSemana: false,
-  },
+    fimDeSemana: false
+  }
 })
 
 // Options
@@ -330,14 +337,14 @@ const categoriaOptions = [
   'Tradução',
   'Fotografia',
   'Arquitetura',
-  'Consultoria',
+  'Consultoria'
 ]
 
 const prazoOptions = [
   { label: 'Menos de 1 semana', value: '1week' },
   { label: '1-2 semanas', value: '2weeks' },
   { label: '2-4 semanas', value: '1month' },
-  { label: 'Mais de 1 mês', value: 'more1month' },
+  { label: 'Mais de 1 mês', value: 'more1month' }
 ]
 
 const localizacaoOptions = [
@@ -355,14 +362,14 @@ const localizacaoOptions = [
   'Maranhão',
   'Paraíba',
   'Espírito Santo',
-  'Piauí',
+  'Piauí'
 ]
 
 const nivelOptions = [
   { label: 'Iniciante', value: 'iniciante' },
   { label: 'Intermediário', value: 'intermediario' },
   { label: 'Avançado', value: 'avancado' },
-  { label: 'Especialista', value: 'especialista' },
+  { label: 'Especialista', value: 'especialista' }
 ]
 
 const habilidadesOptions = [
@@ -379,29 +386,27 @@ const habilidadesOptions = [
   'Google Ads',
   'Social Media',
   'Inglês',
-  'Espanhol',
+  'Espanhol'
 ]
 
 const priceRanges = [
   { label: 'R$ 0 - R$ 500', min: 0, max: 500 },
   { label: 'R$ 500 - R$ 1.500', min: 500, max: 1500 },
   { label: 'R$ 1.500 - R$ 3.000', min: 1500, max: 3000 },
-  { label: 'R$ 3.000+', min: 3000, max: null },
+  { label: 'R$ 3.000+', min: 3000, max: null }
 ]
 
 // Computed
 const hasActiveFilters = computed(() => {
-  return (
-    filters.categoria ||
-    filters.precoMin ||
-    filters.precoMax ||
-    filters.avaliacao > 0 ||
-    filters.prazo ||
-    filters.localizacao ||
-    filters.nivel ||
-    filters.habilidades.length > 0 ||
-    Object.values(filters.disponibilidade).some((v) => v)
-  )
+  return filters.categoria ||
+         filters.precoMin ||
+         filters.precoMax ||
+         filters.avaliacao > 0 ||
+         filters.prazo ||
+         filters.localizacao ||
+         filters.nivel ||
+         filters.habilidades.length > 0 ||
+         Object.values(filters.disponibilidade).some(v => v)
 })
 
 const filteredResults = computed(() => {
@@ -432,13 +437,13 @@ const resetFilters = () => {
   filters.disponibilidade = {
     imediata: false,
     tempoIntegral: false,
-    fimDeSemana: false,
+    fimDeSemana: false
   }
 
   $q.notify({
     color: 'info',
     message: 'Filtros limpos',
-    icon: 'refresh',
+    icon: 'refresh'
   })
 }
 
@@ -453,7 +458,7 @@ const setPriceRange = (range) => {
 }
 
 const getPrazoLabel = (value) => {
-  const option = prazoOptions.find((opt) => opt.value === value)
+  const option = prazoOptions.find(opt => opt.value === value)
   return option?.label || value
 }
 
@@ -473,13 +478,13 @@ const applyFilters = () => {
   $q.notify({
     color: 'positive',
     message: `Aplicando filtros... ${filteredResults.value} resultados encontrados`,
-    icon: 'search',
+    icon: 'search'
   })
 
   // Navigate to results page with filters
   router.push({
     path: '/descubra',
-    query: queryParams,
+    query: queryParams
   })
 }
 </script>
@@ -519,10 +524,9 @@ const applyFilters = () => {
 }
 
 .rating-display {
-  background: var(--jobu-bg-glass);
+  background: rgba(255, 255, 255, 0.05);
   padding: var(--jobu-space-sm);
-  border-radius: var(--jobu-radius-sm);
-  backdrop-filter: blur(5px);
+  border-radius: 8px;
 }
 
 .prazo-options {
