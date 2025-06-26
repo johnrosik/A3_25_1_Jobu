@@ -52,7 +52,7 @@ const routes = [
   {
     path: '/adicionar-cartao',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/AddCardPage.Vue') }],
+    children: [{ path: '', component: () => import('pages/AddCardPage.vue') }],
   },
 
   // Página de erro 404
