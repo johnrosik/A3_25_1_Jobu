@@ -49,8 +49,218 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" side="left" overlay behavior="mobile" elevated>
-      <!-- menu lateral -->
+    <q-drawer
+      v-model="leftDrawerOpen"
+      side="left"
+      overlay
+      behavior="mobile"
+      elevated
+      class="navigation-drawer"
+    >
+      <!-- Header do menu lateral -->
+      <div class="drawer-header">
+        <q-avatar size="40px" class="drawer-logo">
+          <img src="../assets/jobu-logo.png" alt="Jobu" />
+        </q-avatar>
+        <span class="drawer-title">Jobu</span>
+      </div>
+
+      <!-- Lista de navegação -->
+      <q-list class="drawer-menu">
+        <!-- Páginas Principais -->
+        <q-item-label header class="menu-section-title">
+          <q-icon name="home" />
+          Páginas Principais
+        </q-item-label>
+
+        <q-item
+          clickable
+          v-ripple
+          @click="navigateTo('/index')"
+          :class="{ active: $route.path === '/index' }"
+        >
+          <q-item-section avatar>
+            <q-icon name="home" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Início</q-item-label>
+            <q-item-label caption>Página inicial</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          clickable
+          v-ripple
+          @click="navigateTo('/intro')"
+          :class="{ active: $route.path === '/intro' }"
+        >
+          <q-item-section avatar>
+            <q-icon name="info" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Sobre o Jobu</q-item-label>
+            <q-item-label caption>Conheça nossa plataforma</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          clickable
+          v-ripple
+          @click="navigateTo('/descubra')"
+          :class="{ active: $route.path === '/descubra' }"
+        >
+          <q-item-section avatar>
+            <q-icon name="explore" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Descubra</q-item-label>
+            <q-item-label caption>Explore oportunidades</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          clickable
+          v-ripple
+          @click="navigateTo('/login')"
+          :class="{ active: $route.path === '/login' }"
+        >
+          <q-item-section avatar>
+            <q-icon name="login" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Login</q-item-label>
+            <q-item-label caption>Acessar conta</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-separator />
+
+        <!-- Perfis -->
+        <q-item-label header class="menu-section-title">
+          <q-icon name="person" />
+          Perfis
+        </q-item-label>
+
+        <q-item
+          clickable
+          v-ripple
+          @click="navigateTo('/profile')"
+          :class="{
+            active: $route.path.startsWith('/profile'),
+          }"
+        >
+          <q-item-section avatar>
+            <q-icon name="account_circle" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Meu Perfil</q-item-label>
+            <q-item-label caption>Acessar perfil unificado</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-separator />
+
+        <!-- Funcionalidades -->
+        <q-item-label header class="menu-section-title">
+          <q-icon name="apps" />
+          Funcionalidades
+        </q-item-label>
+
+        <q-item
+          clickable
+          v-ripple
+          @click="navigateTo('/servicos')"
+          :class="{ active: $route.path === '/servicos' }"
+        >
+          <q-item-section avatar>
+            <q-icon name="design_services" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Serviços</q-item-label>
+            <q-item-label caption>Seleção de serviços</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          clickable
+          v-ripple
+          @click="navigateTo('/filtros')"
+          :class="{ active: $route.path === '/filtros' }"
+        >
+          <q-item-section avatar>
+            <q-icon name="filter_list" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Filtros</q-item-label>
+            <q-item-label caption>Filtrar resultados</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          clickable
+          v-ripple
+          @click="navigateTo('/interesses')"
+          :class="{ active: $route.path === '/interesses' }"
+        >
+          <q-item-section avatar>
+            <q-icon name="favorite" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Interesses</q-item-label>
+            <q-item-label caption>Seus interesses</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-separator />
+
+        <!-- Pagamento -->
+        <q-item-label header class="menu-section-title">
+          <q-icon name="payment" />
+          Pagamento
+        </q-item-label>
+
+        <q-item
+          clickable
+          v-ripple
+          @click="navigateTo('/pagamento')"
+          :class="{ active: $route.path === '/pagamento' }"
+        >
+          <q-item-section avatar>
+            <q-icon name="payment" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Pagamento</q-item-label>
+            <q-item-label caption>Processar pagamentos</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          clickable
+          v-ripple
+          @click="navigateTo('/adicionar-cartao')"
+          :class="{ active: $route.path === '/adicionar-cartao' }"
+        >
+          <q-item-section avatar>
+            <q-icon name="credit_card" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Adicionar Cartão</q-item-label>
+            <q-item-label caption>Gerenciar cartões</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-list>
+
+      <!-- Footer do drawer -->
+      <div class="drawer-footer">
+        <q-btn
+          flat
+          no-caps
+          icon="close"
+          label="Fechar"
+          @click="leftDrawerOpen = false"
+          class="close-drawer-btn"
+        />
+      </div>
     </q-drawer>
 
     <q-page-container>
@@ -64,13 +274,13 @@
 <script>
 // funcoes do layout
 import { ref, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 export default {
   setup() {
     const leftDrawerOpen = ref(false)
-
     const route = useRoute()
+    const router = useRouter()
 
     const transitionName = computed(() => {
       // animacao especial pro login
@@ -81,9 +291,15 @@ export default {
       return 'page-slide'
     })
 
+    const navigateTo = (path) => {
+      router.push(path)
+      leftDrawerOpen.value = false // Fecha o drawer após navegação
+    }
+
     return {
       leftDrawerOpen,
       transitionName,
+      navigateTo,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
@@ -298,6 +514,65 @@ export default {
   }
 }
 
+/* Page Transitions */
+.page-slide-enter-active,
+.page-slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.page-slide-enter-from {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.page-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.page-expand-enter-active,
+.page-expand-leave-active {
+  transition: all 0.4s ease;
+  transform-origin: center;
+}
+
+.page-expand-enter-from {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.page-expand-leave-to {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+/* Responsive Drawer */
+@media (min-width: 1024px) {
+  .navigation-drawer {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .drawer-header {
+    padding: 16px 12px;
+  }
+
+  .drawer-title {
+    font-size: 1.2rem;
+  }
+
+  .menu-section-title {
+    font-size: 0.8rem;
+    padding: 12px 12px 6px 12px;
+  }
+
+  .q-item {
+    margin: 1px 4px;
+    padding: 8px 12px;
+  }
+}
+
 // brilho da navbar
 @keyframes navbarGlow {
   0%,
@@ -315,5 +590,144 @@ export default {
 
 .modern-navbar {
   animation: navbarGlow 3s ease-in-out infinite;
+}
+
+/* Drawer/Sidebar Styles */
+.navigation-drawer {
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.98) 0%, rgba(15, 15, 15, 0.98) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 16px;
+  background: rgba(0, 184, 148, 0.05);
+  border-bottom: 1px solid rgba(0, 184, 148, 0.1);
+}
+
+.drawer-logo {
+  border: 2px solid rgba(0, 184, 148, 0.2);
+}
+
+.drawer-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: $textprimary;
+  background: linear-gradient(135deg, $textprimary 0%, $secondary 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.drawer-menu {
+  padding: 8px 0;
+}
+
+.menu-section-title {
+  color: $secondary !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 16px 16px 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: transparent;
+}
+
+.q-item {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 2px 8px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: transparent;
+
+  &:hover {
+    background: rgba(0, 184, 148, 0.08) !important;
+    color: $secondary;
+    transform: translateX(2px);
+  }
+
+  &.active {
+    background: rgba(0, 184, 148, 0.12) !important;
+    color: $secondary;
+    border-left: 3px solid $secondary;
+
+    .q-icon {
+      color: $secondary;
+    }
+  }
+
+  .q-item-section--avatar {
+    min-width: 40px;
+
+    .q-icon {
+      transition: all 0.3s ease;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  &:hover .q-icon,
+  &.active .q-icon {
+    color: $secondary;
+  }
+
+  .q-item__label {
+    font-weight: 500;
+  }
+
+  .q-item__label--caption {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+  }
+}
+
+.q-separator {
+  background: rgba(0, 184, 148, 0.15);
+  margin: 8px 16px;
+}
+
+.drawer-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 184, 148, 0.1);
+}
+
+.close-drawer-btn {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  background: transparent;
+
+  &:hover {
+    background: rgba(0, 184, 148, 0.08) !important;
+    color: $secondary;
+  }
+}
+
+/* Remover highlights padrão do Quasar */
+:deep(.q-item) {
+  &.q-item--active {
+    background: transparent !important;
+  }
+
+  &:before {
+    display: none !important;
+  }
+
+  .q-focus-helper {
+    display: none !important;
+  }
+
+  .q-ripple {
+    opacity: 0.1 !important;
+  }
 }
 </style>

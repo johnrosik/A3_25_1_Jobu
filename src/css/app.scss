@@ -1,339 +1,383 @@
-// app global css in SCSS form
-// Import Quasar variables if needed
+// ==========================================================================
+// JOBU - MAIN STYLESHEET
+// Optimized and modular CSS architecture
+// ==========================================================================
+
+// Import Quasar variables first
 @import 'quasar.variables.scss';
 
-// Example: Use variables for component classes
+// Import our modular system
+@import 'base/variables';
+@import 'base/mixins';
+@import 'components/components';
+@import 'utilities/utilities';
+@import 'animations/animations';
+
+// ==========================================================================
+// GLOBAL BASE STYLES
+// ==========================================================================
+
+// Global reset and base styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
-  background-color: $background;
-  color: $textprimary;
+  @include jobu-dark-gradient;
+  color: var(--jobu-text-primary);
+  font-family:
+    'Roboto',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  @include jobu-scrollbar;
 }
+
+// ==========================================================================
+// QUASAR COMPONENT OVERRIDES
+// Enhanced styling for Quasar components to match Jobu theme
+// ==========================================================================
 
 // Buttons
-.q-btn,
-.button-primary {
-  background-color: $primary;
-  color: $textprimary;
-  &:hover,
-  &.q-hovered {
-    background-color: $hover;
+.q-btn {
+  text-transform: none;
+  font-weight: 500;
+  border-radius: var(--jobu-radius-md);
+  transition: all var(--jobu-transition-normal);
+
+  &.q-btn--standard {
+    @include jobu-button(primary);
   }
-}
-.button-secondary,
-.q-btn--secondary {
-  background-color: $secondary;
-  color: $textprimary;
-  &:hover,
-  &.q-hovered {
-    background-color: $hover;
+
+  &.q-btn--outline {
+    @include jobu-button(secondary);
   }
-}
 
-// Navbar / Toolbar
-.navbar,
-.q-toolbar {
-  background-color: $navbarmain;
-  color: $navbartext;
-  .navbar-item,
-  .q-toolbar__title,
-  .q-btn {
-    color: $navbartext;
-    &.active,
-    &.q-btn--active {
-      color: $navbaractive;
-    }
-    &:hover,
-    &.q-hovered {
-      color: $navbarhover;
-    }
+  &.q-btn--flat {
+    @include jobu-button(ghost);
   }
-}
-
-// Custom Header with Hover Effects and Elevation
-.custom-header {
-  background-color: $navbarmain;
-  transition: all 0.3s ease;
-  box-shadow: 0px 4px 20px rgba(0, 255, 128, 0.15);
-  border-bottom: 1px solid rgba(0, 255, 128, 0.1);
-
-  &:hover {
-    box-shadow: 0px 6px 30px rgba(0, 255, 128, 0.25);
-  }
-}
-
-.custom-toolbar {
-  background-color: $navbarmain;
-  transition: all 0.3s ease;
-}
-
-.custom-nav-area {
-  background-color: $navbarmain;
-  transition: all 0.3s ease;
 }
 
 // Cards
-.card,
 .q-card {
-  background-color: $primary;
-  color: $textprimary;
-  border: 1px solid $accent;
+  @include jobu-glass-card;
+  color: var(--jobu-text-primary) !important;
+  background: var(--jobu-bg-glass) !important;
+  backdrop-filter: blur(20px) !important;
 }
 
-// Inputs
-.q-input,
-.q-field {
-  background-color: $background;
-  color: $textprimary;
-  .q-field__control {
-    border-color: $accent;
+// Carousel - Força background escuro
+.q-carousel {
+  background: rgba(26, 26, 26, 0.85) !important;
+
+  .q-carousel__slide {
+    background: transparent !important;
   }
+
+  .q-panel {
+    background: transparent !important;
+  }
+}
+
+// Inputs and Fields
+.q-field {
+  .q-field__control {
+    background: var(--jobu-bg-glass);
+    border-radius: var(--jobu-radius-sm);
+    border: 1px solid var(--jobu-border-subtle);
+    transition: all var(--jobu-transition-normal);
+
+    &:hover {
+      border-color: var(--jobu-border-glass);
+    }
+  }
+
+  &.q-field--focused .q-field__control {
+    border-color: var(--jobu-secondary);
+    box-shadow: 0 0 0 2px rgba(0, 184, 148, 0.2);
+  }
+
   .q-field__native,
   .q-field__input {
-    color: $textprimary;
+    color: var(--jobu-text-primary);
   }
+
   .q-field__label {
-    color: $textsecondary;
+    color: var(--jobu-text-secondary);
   }
-  &.q-field--focused .q-field__control {
-    border-color: $highlight;
+
+  .q-field__bottom {
+    color: var(--jobu-text-muted);
   }
 }
 
 // Dialogs
-.q-dialog__inner,
 .q-dialog {
-  background-color: $primary;
-  color: $textprimary;
+  .q-card {
+    background: var(--jobu-bg-dark);
+    border: 1px solid var(--jobu-border-glass);
+  }
 }
 
-// Lists
-.q-list,
-.q-item {
-  background-color: $background;
-  color: $textprimary;
-  .q-item__section {
-    color: $textsecondary;
-  }
-  &.q-item--active,
-  &:hover {
-    background-color: $hover;
-    color: $highlight;
+// Lists and Items
+.q-list {
+  background: transparent;
+
+  .q-item {
+    color: var(--jobu-text-primary);
+    border-radius: var(--jobu-radius-sm);
+    margin: 2px 0;
+    transition: all var(--jobu-transition-normal);
+
+    &:hover {
+      background: var(--jobu-bg-glass-hover);
+    }
+
+    &.q-item--active {
+      background: var(--jobu-bg-glass-active);
+      color: var(--jobu-text-accent);
+    }
   }
 }
 
 // Tabs
 .q-tabs {
-  background-color: $navbarmain;
-  color: $navbartext;
-  .q-tab--active {
-    color: $navbaractive;
-    background-color: $background;
-  }
-  .q-tab:hover {
-    color: $navbarhover;
+  background: transparent;
+
+  .q-tab {
+    color: var(--jobu-text-secondary);
+    border-radius: var(--jobu-radius-md);
+    transition: all var(--jobu-transition-normal);
+
+    &:hover {
+      background: var(--jobu-bg-glass-hover);
+      color: var(--jobu-text-accent);
+    }
+
+    &.q-tab--active {
+      background: var(--jobu-bg-glass-active);
+      color: var(--jobu-text-accent);
+    }
   }
 }
 
-// Enhanced Tab Hover Effects
-.q-tabs .q-tab {
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: $navbarhover;
-    color: $navbarmain;
-    transform: translateY(-2px);
-  }
-}
-// Drawer / Sidebar
+// Drawer/Sidebar
 .q-drawer {
-  background-color: $navbarmain;
-  color: $navbartext;
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.98) 0%, rgba(15, 15, 15, 0.98) 100%);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid var(--jobu-border-subtle);
 }
 
-// Tooltip
-.q-tooltip {
-  background-color: $primary;
-  color: $textprimary;
+// Toolbar/Header
+.q-toolbar {
+  background: transparent;
+  color: var(--jobu-text-primary);
+}
+
+// Select dropdown
+.q-menu {
+  background: var(--jobu-bg-dark);
+  border: 1px solid var(--jobu-border-glass);
+  border-radius: var(--jobu-radius-md);
+  backdrop-filter: blur(20px);
 }
 
 // Chips
 .q-chip {
-  background-color: $secondary;
-  color: $textprimary;
+  background: var(--jobu-bg-glass);
+  color: var(--jobu-text-primary);
+  border: 1px solid var(--jobu-border-subtle);
+  border-radius: var(--jobu-radius-full);
+
+  &--selected {
+    background: var(--jobu-secondary);
+    color: white;
+  }
 }
 
-// Progress
-.q-linear-progress,
+// Progress indicators
+.q-linear-progress {
+  background: var(--jobu-bg-glass);
+
+  .q-linear-progress__track {
+    background: var(--jobu-secondary);
+  }
+}
+
 .q-circular-progress {
-  color: $highlight;
-  background: $accent;
+  color: var(--jobu-secondary);
 }
 
 // Avatars
 .q-avatar {
-  background-color: $accent;
-  color: $primary;
-}
-
-// Typography helpers
-.text-primary {
-  color: $textprimary !important;
-}
-.text-secondary {
-  color: $textsecondary !important;
-}
-.highlight {
-  color: $highlight !important;
-}
-.elevated-card {
-  background-color: $primary;
-  border: 0px solid #444;
-  border-radius: 10px;
-  box-shadow: 0px 0px 120px rgba(0, 255, 128, 0.12);
-  overflow: hidden;
-}
-
-.toggle-button {
-  color: $textprimary;
-  border-radius: 999px;
-  transition:
-    background 0.2s,
-    padding 0.2s;
-  &:hover,
-  &.q-hovered {
-    background-color: rgba($textprimary, 0.1);
-    padding-right: 8px;
-    border-radius: 999px;
-  }
-}
-
-// Ghost Button for Start Page
-.ghost-button-start {
-  background: transparent !important;
-  color: $textprimary !important;
-  border: none !important;
-  transition: all 0.3s ease;
-  border-radius: 8px;
+  border: 2px solid var(--jobu-border-glass);
+  transition: all var(--jobu-transition-normal);
 
   &:hover {
-    background: $secondary !important;
-    color: $navbarmain !important;
-    box-shadow: 0px 0px 25px rgba(0, 184, 148, 0.6);
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    transform: translateY(0px);
+    border-color: var(--jobu-secondary);
+    box-shadow: var(--jobu-shadow-glow);
   }
 }
 
-// Page Transition - Expand Animation from Login Button
-.page-expand-enter-active,
+// Tooltips
+.q-tooltip {
+  background: var(--jobu-bg-dark);
+  color: var(--jobu-text-primary);
+  border: 1px solid var(--jobu-border-glass);
+  border-radius: var(--jobu-radius-sm);
+  backdrop-filter: blur(10px);
+}
+
+// Skeleton
+.q-skeleton {
+  @include jobu-skeleton;
+}
+
+// ==========================================================================
+// CUSTOM LAYOUT COMPONENTS
+// ==========================================================================
+
+// Modern navbar with enhanced effects
+.modern-navbar,
+.custom-header {
+  @include jobu-glass-header;
+  box-shadow: var(--jobu-shadow-medium), var(--jobu-shadow-glow);
+
+  &:hover {
+    box-shadow:
+      var(--jobu-shadow-large),
+      0 0 30px rgba(0, 184, 148, 0.2);
+  }
+}
+
+// Enhanced card with elevation
+.elevated-card {
+  @include jobu-glass-card;
+  box-shadow: var(--jobu-shadow-large), var(--jobu-shadow-glow);
+}
+
+// Page containers
+.page-container {
+  padding-top: var(--jobu-space-xl);
+  padding-bottom: var(--jobu-space-xl);
+  @include jobu-container;
+
+  @include jobu-responsive(mobile) {
+    padding-top: var(--jobu-space-lg);
+    padding-bottom: var(--jobu-space-lg);
+  }
+}
+
+// Section headers
+.section-header {
+  @include jobu-flex-between;
+  margin-bottom: var(--jobu-space-lg);
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--jobu-text-accent);
+    margin: 0;
+  }
+}
+
+// ==========================================================================
+// LEGACY COMPATIBILITY
+// Maintaining some existing classes for backward compatibility
+// ==========================================================================
+
+// Keep some of the original utility classes that are used
+.text-primary {
+  color: var(--jobu-text-primary) !important;
+}
+.text-secondary {
+  color: var(--jobu-text-secondary) !important;
+}
+.highlight {
+  color: var(--jobu-text-accent) !important;
+}
+
+// Legacy button styles
+.button-primary {
+  @include jobu-button(primary);
+}
+.button-secondary {
+  @include jobu-button(secondary);
+}
+.ghost-button-start {
+  @include jobu-button(ghost);
+}
+
+// Legacy toggle button
+.toggle-button {
+  @include jobu-button(ghost);
+  border-radius: var(--jobu-radius-full);
+
+  &:hover {
+    padding-right: var(--jobu-space-sm);
+  }
+}
+
+// ==========================================================================
+// PAGE TRANSITIONS
+// ==========================================================================
+
+// Enhanced page transitions
+.page-expand-enter-active {
+  animation: jobu-expand-from-login 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 .page-expand-leave-active {
-  transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation: jobu-shrink-to-login 0.4s ease-in;
 }
 
-.page-expand-enter-from {
-  opacity: 0;
-  transform: scale(0);
-  transform-origin: 85% 10%; /* Approximate position of login button */
-  border-radius: 50%;
-}
-
-.page-expand-leave-to {
-  opacity: 0;
-  transform: scale(1.1);
-  filter: blur(8px);
-}
-
-.page-expand-enter-to {
-  opacity: 1;
-  transform: scale(1);
-  transform-origin: center;
-  border-radius: 0;
-}
-
-.page-expand-leave-from {
-  opacity: 1;
-  transform: scale(1);
-}
-
-// Default Page Slide Transition
 .page-slide-enter-active,
 .page-slide-leave-active {
-  transition: all 0.4s ease;
+  transition: all var(--jobu-transition-slow) ease;
 }
 
 .page-slide-enter-from {
   opacity: 0;
   transform: translateX(20px);
 }
-
 .page-slide-leave-to {
   opacity: 0;
   transform: translateX(-20px);
 }
 
-// Enhanced Expand Animation with Circular Reveal Effect
-.page-expand-enter-active {
-  animation: expandFromLogin 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
+// ==========================================================================
+// RESPONSIVE UTILITIES
+// ==========================================================================
 
-.page-expand-leave-active {
-  animation: shrinkToLogin 0.4s ease-in;
-}
-
-@keyframes expandFromLogin {
-  0% {
-    opacity: 0;
-    transform: scale(0) rotate(-5deg);
-    transform-origin: 85% 10%;
-    border-radius: 50%;
-    filter: blur(10px);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(0.8) rotate(0deg);
-    border-radius: 20%;
-    filter: blur(5px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-    transform-origin: center;
-    border-radius: 0;
-    filter: blur(0px);
+// Hide elements on mobile/desktop
+@include jobu-responsive(mobile) {
+  .hide-on-mobile {
+    display: none !important;
   }
 }
 
-@keyframes shrinkToLogin {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.95);
-    filter: blur(5px);
+@include jobu-responsive(desktop) {
+  .hide-on-desktop {
+    display: none !important;
   }
 }
 
-// Enhanced Login Tab Animation
-#login-tab {
-  transition: all 0.3s ease;
-  position: relative;
+// ==========================================================================
+// PRINT STYLES
+// ==========================================================================
 
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 15px rgba(0, 184, 148, 0.4);
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
   }
 
-  &:active {
-    transform: scale(0.95);
+  .no-print {
+    display: none !important;
   }
-}
-
-// Special effect when navigating to login page
-.q-page {
-  overflow: hidden;
 }

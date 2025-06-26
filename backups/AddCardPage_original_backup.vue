@@ -24,9 +24,7 @@
 
           <div class="card-info jobu-flex jobu-justify-between jobu-mb-md">
             <div class="card-holder">
-              <div class="label jobu-text-xs jobu-text-secondary jobu-uppercase">
-                Nome do Portador
-              </div>
+              <div class="label jobu-text-xs jobu-text-secondary jobu-uppercase">Nome do Portador</div>
               <div class="value jobu-text-sm jobu-font-semibold">{{ nome || 'NOME COMPLETO' }}</div>
             </div>
             <div class="card-expiry">
@@ -203,28 +201,18 @@ const errors = ref({
   numero: '',
   nome: '',
   expira: '',
-  cvv: '',
+  cvv: ''
 })
 
 // Computed properties
 const formattedNumber = computed(() => {
-  return numero.value
-    .replace(/\s/g, '')
-    .replace(/(.{4})/g, '$1 ')
-    .trim()
+  return numero.value.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim()
 })
 
 const isFormValid = computed(() => {
-  return (
-    numero.value &&
-    nome.value &&
-    expira.value &&
-    cvv.value &&
-    !errors.value.numero &&
-    !errors.value.nome &&
-    !errors.value.expira &&
-    !errors.value.cvv
-  )
+  return numero.value && nome.value && expira.value && cvv.value &&
+         !errors.value.numero && !errors.value.nome &&
+         !errors.value.expira && !errors.value.cvv
 })
 
 // Card type detection
@@ -239,14 +227,10 @@ const getCardType = () => {
 const getBrandIcon = () => {
   const type = getCardType()
   switch (type) {
-    case 'visa':
-      return 'credit_card'
-    case 'mastercard':
-      return 'credit_card'
-    case 'amex':
-      return 'credit_card'
-    default:
-      return 'credit_card'
+    case 'visa': return 'credit_card'
+    case 'mastercard': return 'credit_card'
+    case 'amex': return 'credit_card'
+    default: return 'credit_card'
   }
 }
 
@@ -285,10 +269,8 @@ const validateExpiry = () => {
     errors.value.expira = 'Formato inválido (MM/AA)'
   } else if (parseInt(month) < 1 || parseInt(month) > 12) {
     errors.value.expira = 'Mês inválido'
-  } else if (
-    parseInt(year) < currentYear ||
-    (parseInt(year) === currentYear && parseInt(month) < currentMonth)
-  ) {
+  } else if (parseInt(year) < currentYear ||
+            (parseInt(year) === currentYear && parseInt(month) < currentMonth)) {
     errors.value.expira = 'Cartão expirado'
   } else {
     errors.value.expira = ''
@@ -325,7 +307,7 @@ const onSubmit = async () => {
     $q.notify({
       color: 'negative',
       message: 'Por favor, corrija os erros no formulário',
-      icon: 'error',
+      icon: 'error'
     })
     return
   }
@@ -334,12 +316,12 @@ const onSubmit = async () => {
 
   try {
     // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    await new Promise(resolve => setTimeout(resolve, 2000))
 
     $q.notify({
       color: 'positive',
       message: 'Cartão adicionado com sucesso!',
-      icon: 'check_circle',
+      icon: 'check_circle'
     })
 
     // Redirect back to payment page
@@ -348,7 +330,7 @@ const onSubmit = async () => {
     $q.notify({
       color: 'negative',
       message: 'Erro ao adicionar cartão. Tente novamente.',
-      icon: 'error',
+      icon: 'error'
     })
   } finally {
     loading.value = false

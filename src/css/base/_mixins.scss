@@ -1,0 +1,201 @@
+// ==========================================================================
+// JOBU - MIXINS
+// Reusable mixins for common patterns
+// ==========================================================================
+
+@use 'sass:color';
+
+// Glass Card Effect
+@mixin jobu-glass-card($blur: 20px, $border-opacity: 0.2) {
+  background: var(--jobu-bg-glass);
+  backdrop-filter: blur($blur);
+  border: 1px solid rgba(0, 184, 148, $border-opacity);
+  border-radius: var(--jobu-radius-lg);
+  transition: all var(--jobu-transition-normal);
+
+  &:hover {
+    background: var(--jobu-bg-glass-hover);
+    border-color: rgba(0, 184, 148, $border-opacity + 0.1);
+    transform: translateY(-2px);
+    box-shadow: var(--jobu-shadow-glow);
+  }
+}
+
+// Dark Gradient Background
+@mixin jobu-dark-gradient($direction: 135deg) {
+  background: linear-gradient($direction, var(--jobu-bg-dark) 0%, var(--jobu-bg-darker) 100%);
+}
+
+// Glassmorphism Header
+@mixin jobu-glass-header {
+  background: linear-gradient(135deg, var(--jobu-bg-glass-hover) 0%, var(--jobu-bg-glass) 100%);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--jobu-border-glass);
+  padding: var(--jobu-space-md) 0;
+}
+
+// Modern Button
+@mixin jobu-button($variant: primary) {
+  border-radius: var(--jobu-radius-md);
+  font-weight: 500;
+  transition: all var(--jobu-transition-normal);
+  border: none;
+  cursor: pointer;
+  @if $variant == primary {
+    background: var(--jobu-secondary);
+    color: white;
+
+    &:hover {
+      background: color.scale(#00b894, $lightness: 10%);
+      transform: translateY(-2px);
+      box-shadow: var(--jobu-shadow-glow);
+    }
+  }
+
+  @if $variant == secondary {
+    background: transparent;
+    color: var(--jobu-text-accent);
+    border: 2px solid var(--jobu-secondary);
+
+    &:hover {
+      background: var(--jobu-secondary);
+      color: white;
+      transform: translateY(-2px);
+    }
+  }
+
+  @if $variant == ghost {
+    background: transparent;
+    color: var(--jobu-text-secondary);
+
+    &:hover {
+      background: var(--jobu-bg-glass-hover);
+      color: var(--jobu-text-accent);
+    }
+  }
+}
+
+// Flex utilities
+@mixin jobu-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin jobu-flex-between {
+  & {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@mixin jobu-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Container with max-width
+@mixin jobu-container($max-width: 1200px) {
+  & {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 var(--jobu-space-md);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 var(--jobu-space-sm);
+  }
+}
+
+// Responsive breakpoints
+@mixin jobu-responsive($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: 599px) {
+      @content;
+    }
+  }
+  @if $breakpoint == sm {
+    @media (min-width: 600px) and (max-width: 1023px) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media (min-width: 1024px) and (max-width: 1439px) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  }
+  @if $breakpoint == mobile {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 769px) {
+      @content;
+    }
+  }
+}
+
+// Hover lift effect
+@mixin jobu-hover-lift($lift: 4px) {
+  transition: transform var(--jobu-transition-normal);
+
+  &:hover {
+    transform: translateY(-$lift);
+  }
+}
+
+// Text gradients
+@mixin jobu-text-gradient($from: var(--jobu-text-primary), $to: var(--jobu-secondary)) {
+  background: linear-gradient(135deg, $from 0%, $to 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Loading skeleton
+@mixin jobu-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--jobu-bg-glass) 25%,
+    var(--jobu-bg-glass-hover) 50%,
+    var(--jobu-bg-glass) 75%
+  );
+  background-size: 200% 100%;
+  animation: jobu-loading 1.5s infinite;
+}
+
+@keyframes jobu-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// Scrollbar styling
+@mixin jobu-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--jobu-bg-glass);
+    border-radius: var(--jobu-radius-sm);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--jobu-secondary);
+    border-radius: var(--jobu-radius-sm);
+
+    &:hover {
+      background: color.scale(#00b894, $lightness: 10%);
+    }
+  }
+}

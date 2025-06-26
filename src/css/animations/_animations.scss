@@ -1,0 +1,448 @@
+// ==========================================================================
+// JOBU - ANIMATIONS
+// Reusable animations and transitions for enhanced UX
+// ==========================================================================
+
+// Fade animations
+@keyframes jobu-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes jobu-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes jobu-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jobu-fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Scale animations
+@keyframes jobu-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes jobu-scale-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+// Slide animations
+@keyframes jobu-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes jobu-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Bounce animation
+@keyframes jobu-bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+// Pulse animation
+@keyframes jobu-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Glow animation
+@keyframes jobu-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(0, 184, 148, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 184, 148, 0.4);
+  }
+}
+
+// Shimmer animation for loading states
+@keyframes jobu-shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+// Rotate animation
+@keyframes jobu-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Floating animation
+@keyframes jobu-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+// Starfield Background Animations
+.jobu-starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.jobu-stars--small,
+.jobu-stars--medium,
+.jobu-stars--large {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.jobu-stars--small {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, var(--jobu-accent), transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--jobu-accent), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 160px 30px, var(--jobu-accent), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: moveStars 25s linear infinite;
+}
+
+.jobu-stars--medium {
+  background-image:
+    radial-gradient(2px 2px at 30px 50px, var(--jobu-accent), transparent),
+    radial-gradient(2px 2px at 80px 90px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 110px 20px, var(--jobu-accent), transparent);
+  background-repeat: repeat;
+  background-size: 300px 150px;
+  animation: moveStars 40s linear infinite;
+}
+
+.jobu-stars--large {
+  background-image:
+    radial-gradient(3px 3px at 50px 60px, var(--jobu-accent), transparent),
+    radial-gradient(2px 2px at 120px 30px, rgba(255, 255, 255, 0.9), transparent);
+  background-repeat: repeat;
+  background-size: 400px 200px;
+  animation: moveStars 60s linear infinite;
+}
+
+@keyframes moveStars {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-400px);
+  }
+}
+
+// Floating Particles
+.jobu-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.jobu-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--jobu-accent);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: floatParticle 20s linear infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+// Animation utility classes
+.jobu-animate-fade-in {
+  animation: jobu-fade-in var(--jobu-transition-normal) ease-out;
+}
+
+.jobu-animate-fade-out {
+  animation: jobu-fade-out var(--jobu-transition-normal) ease-out;
+}
+
+.jobu-animate-fade-in-up {
+  animation: jobu-fade-in-up var(--jobu-transition-slow) ease-out;
+}
+
+.jobu-animate-fade-in-down {
+  animation: jobu-fade-in-down var(--jobu-transition-slow) ease-out;
+}
+
+.jobu-animate-scale-in {
+  animation: jobu-scale-in var(--jobu-transition-normal) ease-out;
+}
+
+.jobu-animate-scale-out {
+  animation: jobu-scale-out var(--jobu-transition-normal) ease-out;
+}
+
+.jobu-animate-slide-in-left {
+  animation: jobu-slide-in-left var(--jobu-transition-slow) ease-out;
+}
+
+.jobu-animate-slide-in-right {
+  animation: jobu-slide-in-right var(--jobu-transition-slow) ease-out;
+}
+
+.jobu-animate-bounce {
+  animation: jobu-bounce 1s ease-in-out;
+}
+
+.jobu-animate-pulse {
+  animation: jobu-pulse 2s infinite;
+}
+
+.jobu-animate-glow {
+  animation: jobu-glow 2s ease-in-out infinite alternate;
+}
+
+.jobu-animate-rotate {
+  animation: jobu-rotate 1s linear infinite;
+}
+
+.jobu-animate-float {
+  animation: jobu-float 3s ease-in-out infinite;
+}
+
+// Page transition animations
+.jobu-page-transition-enter-active,
+.jobu-page-transition-leave-active {
+  transition: all var(--jobu-transition-slow) ease;
+}
+
+.jobu-page-transition-enter-from {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.jobu-page-transition-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+// Special expand animation for login
+.jobu-expand-enter-active {
+  animation: jobu-expand-from-login 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.jobu-expand-leave-active {
+  animation: jobu-shrink-to-login 0.4s ease-in;
+}
+
+@keyframes jobu-expand-from-login {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-5deg);
+    transform-origin: 85% 10%;
+    border-radius: 50%;
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.8) rotate(0deg);
+    border-radius: 20%;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    transform-origin: center;
+    border-radius: 0;
+    filter: blur(0px);
+  }
+}
+
+@keyframes jobu-shrink-to-login {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(5px);
+  }
+}
+
+// Delayed animation classes
+.jobu-animate-delay-100 {
+  animation-delay: 0.1s;
+}
+.jobu-animate-delay-200 {
+  animation-delay: 0.2s;
+}
+.jobu-animate-delay-300 {
+  animation-delay: 0.3s;
+}
+.jobu-animate-delay-500 {
+  animation-delay: 0.5s;
+}
+
+// Animation duration classes
+.jobu-animate-duration-fast {
+  animation-duration: var(--jobu-transition-fast);
+}
+.jobu-animate-duration-normal {
+  animation-duration: var(--jobu-transition-normal);
+}
+.jobu-animate-duration-slow {
+  animation-duration: var(--jobu-transition-slow);
+}
+
+// Hover animations
+.jobu-hover-lift {
+  transition: transform var(--jobu-transition-normal);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.jobu-hover-scale {
+  transition: transform var(--jobu-transition-normal);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.jobu-hover-glow {
+  transition: box-shadow var(--jobu-transition-normal);
+
+  &:hover {
+    box-shadow: var(--jobu-shadow-glow);
+  }
+}
+
+// Mobile optimizations
+@media (max-width: 768px) {
+  .jobu-stars--small {
+    background-size: 150px 75px;
+  }
+  .jobu-stars--medium {
+    background-size: 200px 100px;
+  }
+  .jobu-stars--large {
+    background-size: 250px 125px;
+  }
+
+  .jobu-particle {
+    width: 2px;
+    height: 2px;
+  }
+}
